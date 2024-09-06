@@ -207,7 +207,31 @@ the means to obscure my actions and existence on the system. I may need to insta
 copying the software onto my target system once I have done the initial compromise.
 
 Therefore, this stage isn't as simple as perharps it seems. There may be a number of factors that get in the way of ensuring that I maintain access.
-There are 
+There are, though, a number of ways of maintaining access. Different OSs allow for different techniques, but each OS version or update can make
+different techniques harder. Ethical hacking is dependent on the circumstances, which is part of what makes it challenging. There are no single
+answers or starighforward approaches. One Windows 10 system may be easily compromised because there are patches that are available but missing.
+Another Windows 10 system may be difficult to get into because it is up to date, and it has permissions and other settings.
+
+Maintaining access is often called persistence. This is where any access mechanism is installed to persist on a system. No matter whether a user
+logs out or reboots a system, the attacker can continue to get in. This is commonly done by installing software that reaches out, or beacons, to
+systems on the Internet somewhere. The reason for this is because inbound access is often blocked by a firewall. Outbound access is often allowed
+from the inside of a network in a completely unrestricted manner.
+
+##Covering Tracks
+
+Covering my tracks is where I hide or delete any evidence to which I managed to get access. Additionally, I should cover up my continued access.
+This can be accomplished with malware that ensures that my actions aren't logged or perhaps the malware misreports system information, like
+network connections.
+
+One thing to keep in mind when I am trying to cover my tracks is that sometimes my actions may also provide evidence of my work. One example is
+that wiping logs on a Windows system will leave a log entry indicating that the logs have been wiped. This may be an indication to anyone
+watching the logs that someone tried to erase evidence. It's not guarantee that the log wipe was malicious, but it may be enough to prompt someone
+to investigate further. because of this, covering tracks can be challeging. This may, though, be exactly what I've been asked to do -- challenge
+and test the response capabilities of the operations team. As a result, it's always important to keep in mind the objectives of my engagement.
+
+#Summary
+
+I need to be responsible custodian of any data entrusted to me.
 
 
 
