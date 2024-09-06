@@ -158,8 +158,18 @@ The objective of recon and footprinting s determining the size and scope of my t
 organization, meaning the size and appearance. This means, trying to identify network blocks, hosts, locations and people. The info gathered here
 will be used later as I progress through additional stages.
 
-Keep in mind
+Keep in mind that while I am looking for details about my target, I will find not only network blocks, which may exist within enterprise networks,
+but also potentialy single hosts, which may belong to systems that are hosted with a service provider. As these systems will run services that may
+provide entry points or just house sensitive data, it's necessary to keep track of everything I gather and not limit myself to information available
+about network blocks that the company may have.
 
+In the process of doing this work, I may also turn up personal info belonging to employees at my target. This will be useful when it comes to social
+engineering attacks. These sorts of attacks are commonplace. In fact, some estimates suggest that 80 to 90 percent of infiltrations are a result of
+these social engineering attacks.
+
+##Scanning and Enumeration
+
+Once I have
 
 
 
