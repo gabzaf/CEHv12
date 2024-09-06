@@ -4,4 +4,24 @@ Open Systems Interconnection (OSI) model and the TCP/IP architecture.
 
 #Communications Models
 
+We access systems through their address. The problem is that each system will have multiple address. These addresses are best separated into buckets
+related to the functionality provided by the protocol each address belongs to.
 
+##Protocols
+
+A protocol is a set of rules or conventions that dictate communication.
+
+##OSI
+
+It includes seven layers. Messages start being created from the Application layer down.
+
+- Application (layer 7): The application layer is the one closest to the end user. This does not mean that it is the application itself, however.
+Application layer protocols manage the communication needs of the application. They may identify resources and manage interacting with those
+resources. As an example, the HTTP is an application layer protocol. It takes care of negotiating for resources btw client and the server.
+- Presentation (layer 6): It's responsible for preparing data for the application layer. It makes sure that the data that is handed up to the
+application is in the rght format so it can be consumed.
+- Session (layer 5): It manages the communication btw the endpoints when it comes to maintaining the communication of the applications (client and
+server). Remote procedure calls (RPCs) are an example of a function at the session layer. There are components of file sharing that also live at
+the session layer, since negotiation of communication btw the endpoints needs to take place. It takes care of making sure that files are succesfully
+transmitted and complete.
+- Transport (layer 4): It takes care of segmenting messages for transmission.  
