@@ -169,7 +169,45 @@ these social engineering attacks.
 
 ##Scanning and Enumeration
 
-Once I have
+Once I have network blocks identified, I will want to identify systems that are accessible within those network blocks; this is the scanning and
+enumeration stage. More important, however, I will want to identify services running on any available host. Ultimately, these services will be used
+as entry points. The objective is to gain access, and that may be possible through exposed network services. This includes not only a list of all
+open ports, which will be useful info, but also the identity of the service and software running behind each port.
+
+This may also result in gathering information that different services provide. This includes the software providing the service, such as NGINX,
+Apache or ISS for a web server. Additionally, there are services that may provide a lot of details about not only the software but the internals of
+the organization. This may be usernames, for instance. Some Simple Mail Transfer Protocol (SMTP) servers will give up valid usernames if they are
+queried correctly. Windows servers using the Server Message Block (SMB) protocol or the Common Internet File System (CIFS) protocol can be asked for
+info. I can details like the directories being shared, usernames and even some policy info. The objective of this phase is to gather as much info
+as I can to have starting points for when I move into to the next phase. This phase can be time consuming, especially as the size of the network and
+enterprise I am working with grows. The more details I can gather here, the easier the next stage will be for me.
+
+##Gaining Access
+
+Gaining access is what many people consider to be the most important part of a pen test and for many the most interesting. This is where I can
+demonstrate that some services are pontetially vulnerable. I do that by exploiting the service. There are no theoretical or false positives when
+I have compromised a system or stolen data and I can prove it. This highlights one of the important aspects of any ethical hacking: documentation.
+I will need to demonstrate or prove in some way that I did manage to compromise the system.
+
+Techincal attacks, like those exploiting vulnerabilities in listening network services, are sometimes thought of as how systems get compromised,
+but the reality is that social engineering attacks are far more likely to be the way attackers gain access to systems. This is one of the reasons
+why enumeartion is important - because I need targets for social engineering attacks. There are a number of ways to perform social engineering
+attacks.
+
+##Maintaining Access
+
+Once I am in, emulating common attack patterns means that I should maintain access. If I've managed to compromise a user's system, when the user
+shuts the system down, I will lose access. This may mean that I will need to recompromise the system. Since exploits are not always guaranteed to
+be effective, I may well not get in the next time I attempt to compromise. Beyond that, I may have used a comprommise that relied on vulnerability
+that was fixed. My next attempt may fail because the vulnerability is no longer there. I need to give myself other means to get into the system so
+I can make sure I retain the ability to see what is happening on that system and potentially the enterprise network overall.
+
+This is another stage where malware can be beneficial. I may need to install a rootkit, for example, that can provide me with a backdoor as well as
+the means to obscure my actions and existence on the system. I may need to install additional software to maintain the access. This may require
+copying the software onto my target system once I have done the initial compromise.
+
+Therefore, this stage isn't as simple as perharps it seems. There may be a number of factors that get in the way of ensuring that I maintain access.
+There are 
 
 
 
