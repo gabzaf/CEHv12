@@ -51,7 +51,7 @@ attacker would do or how attackers operate. These may not map perfectly to how a
 a consistency and breadth of approach to security testing, which makes them valuable. In addition, many common security testing methodologies are
 models of how attackers operate. The first is the cyber kill chain, another is the attack life cycle, while a third is the MITRE ATT&CK framework.
 
-#Cyber Kill Chain
+##Cyber Kill Chain
 
 A kill chain is a military concept of the structure of an attack. The idea of a kill chain is that I can identify where the attacker is in their
 process so I can adapt my own response tactics.
@@ -65,7 +65,7 @@ The 6th phase is COMMAND & CONTROL -> Outside server communicates with the weapo
 The 7th phase is ACTIONS ON OBJECTIVE -> The attacker works to achieve the objective of the intrusion, which can include exfiltration or
 destruction of data, or intrusion of another target, there is a lot of activity that happens in this phase.
 
-#Attack Lifecycle
+##Attack Lifecycle
 
 This is different from the cyber kill chain but there are some similarities. The attack life cycle describes exactly how attackers have operated
 for as far back as there have been attacks against computing infrastructure.
@@ -104,10 +104,53 @@ The attacker may coontinue to find additional targets in the environment to expl
 there would be continuous returns to this phase. After all, if I am planning to take up years-long residence, I don't want to wait years before
 getting data out because I can't, as an attacke, ever know something may change and I lose access.
 
-#MITRE ATT&CK Framework
+##MITRE ATT&CK Framework
+
+While the attack life cycle does a good job of describing the process an attacker goes through, it does not describe the specific behaviors used by
+the attacker, which are called techniques, tactics and procedures (TTPs). The MITRE ATT&CK Framework is a taxonomy of TTPs, which means it is a way
+of organizing TTPs that have been seen in the real world into a set of categories. Mostly, the categories follow the same attack trajectory seen
+in the attack life cycle and the cyber kill chain, though there are some categories that are called out separately because it's useful to understand
+some of the specific TTP categories that may be done in a parallel stream or be part of multiple stages of the attack life cycle or cyber kill chain.
+Examples include resource development and execution.
+
+- Reconnaissance: The attacker is looking for victims or way to get into victim's systems that have been identified; 
+- Resource Development: Infra for managing compromised hosts is put together here, as well as developing exploits or collecting credentials from other
+sources that could be used;
+- Initial Access: Systems or user accounts are compromised to provide the attacker access to a resource that can be used;
+- Execution: This is not a stage itself, but instead describes a series of actions or behaviors an attacker might use to maintain access for the
+system. This could include, for instance, executing Power Shell scripts;
+- Persistence: The attacker needs to ensure they maintain access beyond reboots or other system changes, so they need to be sure they have a program
+that always runs when the system is started, or at least when a user logs in;
+- Privilege Escalation: A user behavior is restricted, attackers would typically look to gain administration privileges. The process of obtaining that
+level of permissions is called privilege excalation;
+- Defense Evasion: Businesses will do a lot of work trying to protect systems, looking for malware and instances of persistence. When attackers try
+to get access and maintain access regardless of the protection measures in place, it's defense evasion and may include masquerading or execution
+hijacking or tampering with protections in place;
+- Credential Access: A common attack pratice is to gather usernames and passwords. This may be done either from previous or from systems or users
+directly. Any username and password set may be useful at some point;
+- Discovery: Any activity that collects information within the victim environment could be considered discovery;
+- Lateral Movement: Attackers will generally move from one system to another within the victim environment, to collect more information or to gather
+details about systems or users that could be used elsewhere;
+- Collection: Once the attacker has found information they want to use or sell, they need to pull it together. This is the collection referred to here.
+It may be something simple like staging the data somewhere in the network;
+- Command and Control: The attacker needs a way of getting remote access to systems or to send commands to those systems. Usually, there is infra in
+place to perform this C&C work. With firewalls in place, direct access to victim systems is not commonly possible so the connection needs to be
+initialized from the inside of the network
+- Exfiltration: Data that has been collected needs to be moved out to the attacker locations so it can be dealt with. Moving the data out of the
+target environment to the attacker's place is exfiltration.
+- Impact: Attackers aren't always looking to steal information. Sometimes, they are looking to be destrcutive, or in the case of some types of
+ransomware, they are looking to modify data by encrypting it.
+
+These TTPs are different from a collection of exploits.
+
+#Methodology of Ethical Hacking
+
+One thing to keep in mind when it comes to information security is that not everything is about protection or prevetion. I need to be able to detect
+all of these attacker activities.
+
+##Reconnaissance and Footprinting
 
 
- 
 
 
 
