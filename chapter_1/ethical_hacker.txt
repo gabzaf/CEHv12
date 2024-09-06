@@ -150,6 +150,15 @@ all of these attacker activities.
 
 ##Reconnaissance and Footprinting
 
+Recon is where I gather info about the target. I want to understand the scope of my endeavor up front, of course. This will help me narrow my actions
+so I'm not engaging in anything that could be unethical. I'll have some sense of who my target is, but I may not have all the details. Gathering the
+details of my target is one of the reasons for performing recon.
+
+The objective of recon and footprinting s determining the size and scope of my test. Footprinting is just getting an idea of the "footprint" of the
+organization, meaning the size and appearance. This means, trying to identify network blocks, hosts, locations and people. The info gathered here
+will be used later as I progress through additional stages.
+
+Keep in mind
 
 
 
