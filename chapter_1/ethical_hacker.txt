@@ -1,0 +1,75 @@
+#Topics covered: Code of conduct, Appropriateness of hacking and Five phases of ethical hacking.
+
+Ethical hacking or Penetration testing.
+
+To keep myself viable as a professional I need to behave and perform my work in an ethical manner. As part of the code of ethics, I will be sworn
+to keep information I obtain as part of my work private, paying particular attention to protecting the information and intelectual property of
+employers and clients. When I am attacking systems that belong to other people, I could be provided with internal information that is sensitive.
+I could also come across some critical information vital to the organization for which I am working. Failing to protect any of that data violates
+the code of ethics by compromising the confidentiality of that information.
+
+I am expected to disclose information that needs to be disclosed to the people who have engaged my services. This includes any issues that I have
+identified. I am also expected to disclose potential conflicts of interest that I may have. It's important to be transparent in my dealings and
+also do the right thing when it comes to protecting my clients, employers and their business interests. Additionally, if I come across something
+that could have an impact on a large number of people across the Internet, I am expected to disclose it in a responsible manner.
+
+There will be times when the testing I am performing may cause damage to a service provided by the infrastructure of the company I am working for or
+with. As long as this is unintentional or agreed to be acceptable by the company, this is okay. One way to alleviate this concern is to keep lines
+of communications open at all times. If it happens that an unexpected outage occurs, ensuring that the right people know so it can be remedies is
+essential.
+
+When I am taking on a new engagement, it's essential to be clear about the expectations for my services. If I have the scope in writing,
+everyting is clear and documented.
+
+#Overview of Ethical Hacking
+
+There is an urgent need to improve how information security is handled. It's believed that to protect against attacks, I have to be able to
+understand those attacks. Ideally, I need to replicate the attacks. If businesses are testing attacks against their own infrastructure early and
+often, those businesses could be in a better position to improve their defenses and keep the real attackers out.
+
+This type os testing is what ethical hacking really is. It's all about ferreting out problems wth the goal of improving the overall security
+posture of the target. This may be for a company in terms of their infrastructure or even desktop systems. It may also be performing testing
+against software to identify bugs that can be used to compromise the software and, subsequently, the system where the software is running.
+
+Ethical hacking can be done under many different names. I may not always see the term ethical hacking, especially when I am looking at the job
+titles. I may see the term penetration testing or red teaming, which is generally considered a specific type of pen test where the testers are
+adversarial to the organization and network under test. A red teamer would actually act like an attacker, meaning they would try to be stealthy
+so as not to be detected.
+
+One of the challeging aspects of this sort of activity is having to think like an attacker. Testing of this nature is often challenging and
+requires a different way of thinking. When doing any sort of testing, including ethical hacking, a methodology is important, as it helps ensure
+that my actions are both repeatable and verifiable. 
+
+#Attack Modeling
+
+Using a methodology is valuable when it comes to ethical hacking or security testing. Methodology can help with consistency, repeatability and
+process improvement.
+
+There are some testing or assessment methodologies that get used throughout the industry, including the Penetration Testing Execution Standard
+(PTES) and the Open Source Security Testing Methodology Manual (OSSTMM). These methodologies are typically built around expectations of what an
+attacker would do or how attackers operate. These may not map perfectly to how attackers operate in the real world, but they do help to ensure
+a consistency and breadth of approach to security testing, which makes them valuable. In addition, many common security testing methodologies are
+models of how attackers operate. The first is the cyber kill chain, another is the attack life cycle, while a third is the MITRE ATT&CK framework.
+
+#Cyber Kill Chain
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
