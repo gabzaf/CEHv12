@@ -1,0 +1,7 @@
+#Topics covered: Networking technologies, Communications protocols, telecommunications technologies, network topologies and subnetting
+
+Open Systems Interconnection (OSI) model and the TCP/IP architecture.
+
+#Communications Models
+
+
