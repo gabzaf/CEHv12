@@ -53,6 +53,61 @@ models of how attackers operate. The first is the cyber kill chain, another is t
 
 #Cyber Kill Chain
 
+A kill chain is a military concept of the structure of an attack. The idea of a kill chain is that I can identify where the attacker is in their
+process so I can adapt my own response tactics.
+
+The 1st phase of cyber kill chain is RECONNAISSANCE -> Research, identification and selection of targets;
+The 2nd phase is WEAPONIZATION -> Pairing remote access malware with exploit into a delivery payload;
+The 3rd phase is DELIVERY -> Transmission of weapon to target (via email attachments, websites, network-based attack or USB drives);
+The 4th phase is EXPLOITATION -> Once delivered, the weapon's code is triggered, exploiting vulnerable applications or systems;
+The 5th phase is INSTALLATION -> The weapon installs a backdoor on a target's system, allowing persistent access;
+The 6th phase is COMMAND & CONTROL -> Outside server communicates with the weapons providing "hands-on keyboard access" inside the target's network;
+The 7th phase is ACTIONS ON OBJECTIVE -> The attacker works to achieve the objective of the intrusion, which can include exfiltration or
+destruction of data, or intrusion of another target, there is a lot of activity that happens in this phase.
+
+#Attack Lifecycle
+
+This is different from the cyber kill chain but there are some similarities. The attack life cycle describes exactly how attackers have operated
+for as far back as there have been attacks against computing infrastructure.
+
+One significant difference btw the attack life cycle and the cyber kill chain is a recognition that often an attack is not one-and-done.There is a
+loop that happens in the middle. Attackers don't keep launching attacks from outside the network. Once they get into the environment, they use
+compromised systems as launch points for additional compromises within the environment. Attackers will gain access to a system and use that system
+and anything discovered there, like credentials, to move off to another system in the network. Before we get there, though, an attacker identifies
+a victim and potential attack possibilities in the initial recon stage. The attacker is doing reconnaissance, including identifying names and
+titles using open source intelligence, meaning they use public sources like social network sites, to generate attacks. To gain access, they launch
+attacks -- commonly, these would be phishing attacks. This is the initial compromise stage.
+
+Once, they have compromised a system, the attacker will work to establish a foothold. This includes making sure they retain access to the system so
+they can get back in when they need to. It's perharps important to recognize that these attacks don't happen in a bang-bang fashion. It may take
+days or weeks to move from one phase of the attack life cycle to another. These depends on the organization performing the attacks. These are not
+individuals. They are organizations, so there may be different employees working on different stages.
+
+To do much else, the attacker will need to escalate privileges. They need to have administrative privileges to move into the loop that happens as
+they continue to move through the environment, gathering additional systems along the way. They will probably be gathering credentials from
+memory or disk here. They will also be investigating connections the system is known to have had with other systems in the network. This is a form
+of internal reconnaissance. They may also be trying to identify other credentials that are known to the system.
+
+The reconnaissance is necessary to be able to move laterally. This is sometimes known as east-west movement. To make those lateral movements,
+attackers need to know what systems there are. It may be servers, since individual systems are likely to know a lot of servers they communicate with,
+but it may also be individual workstations. In an enterprise network, it may be possible to authenticate using captured credentials against other
+workstations, which may have access to different sets of servers.
+
+With every system the attacker gets access to, they need to maintain presence. This means some form of persistence, so any malware that is allowing
+the attacker access remains running. I might use the Windows registry, scheduled tasks, or other types of persistence to keep any malware running so
+the attacker can keep getting back in when they want.
+
+The last phase of the attack life cycle, though leaving it until the end is misleading, is complete mssion. Again, attacks tend not to be
+one-and-done. Once the attacker is in my environment, they will likely be continuing to revisit to see if there is anything else they need. They
+may be continuing to get broader reach within the organization. The complete mission phase is where data may be exfiltrated from the environment.
+The attacker may coontinue to find additional targets in the environment to explot, which would likely mean additional exfiltration. This means
+there would be continuous returns to this phase. After all, if I am planning to take up years-long residence, I don't want to wait years before
+getting data out because I can't, as an attacke, ever know something may change and I lose access.
+
+#MITRE ATT&CK Framework
+
+
+ 
 
 
 
