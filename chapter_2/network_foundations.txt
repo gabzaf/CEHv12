@@ -227,7 +227,20 @@ the host. That would be an incredible large network.
 
 ###TCP
 
+Moving to the transport layer, I first run across the TCP. Where IP is a best effort protocol, meaning that a best effort is made to get messages from
+one system to another, TCP is said to have guaranteed delivery. There are mechanisms in the protocol that keep track of all the messages that are sent,
+and if something doesn't get to the other end and is acknowledged there, messages will be resent.
 
+The PDU for TCP is called a segment.
+
+The layers I have looked at so far have forms of addressing. The Transport layer is no different. Where previous addresses are related to the systems
+to ensure messages get from one system to another, we start to become concerned about getting messages to the application. They also provide
+multiplexing. Without ports, we wouldn't be able to have multiple applications listening on the same system. With ports, we have a large capacity for
+conversations with other systems.
+
+There are fields in the TCP headers:
+
+- Source Port:
 
 
 
