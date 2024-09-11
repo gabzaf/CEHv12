@@ -160,7 +160,28 @@ then encapsulated by the headers, creating an entirely new PDU. For IP, the PDU 
 
 ###Addressing
 
+IPv4 addresses are 4 octets long. Since each value is 8 bits, there are potential values of 0 to 255. Not all values, especially in the
+first two octets, are used, however. There are some addresses that are held in reserve for various reasons. For a start, the address range
+127.0.0.0 - 127.255.255.255 is reserved for loopback addresses. These are addresses that refer to the host they are assigned to. The loopback
+interface ensures there is always a network interface on the system and allows for testing over a network without sending any traffic outside the
+system. Commonly, the loopback address on systems is 127.0.0.1, though any address in that range could be used.
 
+There are IP address that are used for private networks. By convetion, these address are not routable over the Internet. Most networks will do
+something to block source addresses from these ranges coming into their space, since they should never be originating from the outside of a network.
+The ranges for these private addresses meant to be used by any network that doesn't have public IP address, are:
+10.0.0.0 - 10.255.255.255, 172.16.0.0 - 172.31.255.255 and 192.168.0.0 - 192.168.255.255.
+
+Additionally, other address ranges are held in reserve. The range 224.0.0.0 trough 239.255.255.255 is used for multicast messages. Anything above
+240.0.0.0 is also reserved and is not currently in use.
+
+Instead of just 4 octets that are used in IPv4 IPv6 uses 16 bytes. Because an octet can be represented with two hexadecimal digits, I'll see IPv6
+addresses represented in that way. There are 16 octets in an IPv6 address, the longer address I'll run across will be 32 characters.
+
+IPv6 has three different address types. The first is unicastm which refers to a single system. Anycast addresses are groups of systems that share a
+single address. A message sent to the anycast address will be delivered to just one of the hosts in the anycast group. This is commonly be the
+closest address, based on routing rules. Any anycast address will have the same format as a unicast address. Multicast addresses will look like the
+other addresses, but they are formatted based on the fact that they are muticast and on the application that is using the address. 
+multicast 
 
 ###Subnets
 
@@ -169,7 +190,21 @@ of the IP address belongs to the host and a part belongs to the network. This se
 are local, meaning the communications stay on the local network. The way systems are told what are local networks and what are not local networks is
 that a subnet mask is paired with the IP address.
 
-To determine what portion of an IP address belongs to the network, I look at the bits that are set to 1 in the subnet mask.
+To determine what portion of an IP address belongs to the network, I look at the bits that are set to 1 in the subnet mask. To better understand
+this concept, let's take a look at a binary representation of a subnet mask:
+11111111.11111111.11111111.10000000
+
+Any bit position that has a 1 in its part of the network segment. Subnet masks can only have certain values: 0, 128, 192, 224, 240, 248, 252, 254 and
+255. If apply binary to decimal translation to the binary adress above, I can see the subnet mask is 255.255.255.128. This means that only the last
+7 bits of the last octet are used for host values. The bit representation in the last octet would be 10000000. This is where I need to start applying
+the IP address to the subnet maskto get the address range.
+
+With a subnet mask of 255.255.255.128, I have the possibilities of two address blocks, regardless of what the IP address is. I can vary the last
+octet, an I am constrained because I can't change the value in the MSBP. This leaves me with the ranges of 0-127 and 128-255. Once I know what my
+IP address is, I know which block I am in. Let's say my IP address is 172.20.30.42, and my netmask is 255.255.255.128. I know my address block has to
+be 172.20.30.0-127 because that's the range that .42 lands in.
+
+Another way
 
 
 
