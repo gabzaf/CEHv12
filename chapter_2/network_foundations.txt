@@ -240,7 +240,34 @@ conversations with other systems.
 
 There are fields in the TCP headers:
 
-- Source Port:
+- Source Port: The source port is the port that the traffic originated from on the sending side. This is important because conversations are not one
+way. For the recipient to be able to respond, it needs a port to send back to. When messages are responded to, the source and destination ports are
+reversed. The source ports is 16 bits in length.
+
+- Destination Port: It's the one that is associated with an application. Every conversation has a client side and a server side. The server side binds
+an application to a listening port. The clients sends to this port as the destination port. If the server is sending from the server to the client,
+the destination port is the ephemeral port assigned to the application that is communicating with the server. The dest port is 16 bit in length.
+
+- Sequence Number:
+
+- Acknowledgment Number:
+
+- Data Offset:
+
+- Reserved:
+
+- Control Bits:
+
+- Window:
+
+- Checksum:
+
+- Urgent Pointer:
+
+- Options:
+
+TCP uses multiple mechanisms to ensure a reliable service. The first is that TCP is connected-oriented. Connections are established using what is
+called a three-way handshake. The handshake
 
 
 
