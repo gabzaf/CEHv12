@@ -45,4 +45,50 @@ However, there are places where having the model makes conceptualizing things mu
 
 ##TCP/IP Architecture
 
+The way the suite of protocols used within the TCP/IP stack is described is slightly different from the way the OSI model is described. After TCP/IP
+was implemented, the conceptual design of protocols was described. For this reason, the suite is sometimes referred to as model, but it may also
+be referred to as an architecture, since it's a description of an as-built design rather than something conceptual. OSI is entirely conceptual since
+it doesn't describe anything in particular.
+
+The TCP/IP architecture is a much simpler design than the OSI model, which is an immediate difference and a reflection of the as-built nature of the
+design as compared with the conceptual design of the OSI.
+
+##Topologies
+
+Some topologies are only found in certain situations. Some will be found in service provider networks, while others are more commonly found in local
+area networks.
+
+Even in cases where I'm working with virtual networks, I will find these conceptual ways of thinking about how systems are interconnected helpful. In
+the end, whether I'm connecting virtual machines or containers or physical systems or some collections of all of those, I'll be working with one of
+these topology models. The topology tells me how traffic flows from one system to another and what intermediary devices the communication passes
+through, which will help me determine where I may be able to intercept or manipulate traffic.
+
+###Bus Network
+
+It consists of a single network cable to which every device on the network connects. A bus is a communication channel. There is no mediating device,
+all of the computers are connected directly to one another by means of that single network cable.
+
+###Star Network
+
+The difference btw the bus and the star network is that there is a mediating device btw all the devices. This may be a hub, which is a repeater, or
+may be a switch, which the signal will be sent to the correct port. And this is where the different layers are helpful. A switch, which is the most
+common device in a star network topology, acts at layer 2 of the OSI model. It uses the MAC address to make decisions about where traffic goes.
+In the case of a star network with a hub, there are the same issues as there would be with a bus network -- lots of collisions where messages sent
+out on the wire run over other messages sent by someone else. A switch alleviates those issues because only traffic addressed to a system gets
+sent to that system.
+
+###Ring Network
+
+A ring network is similar to a bus network in the sense that all of the nodes on the network appear to be connected on a contiguous network segment.
+Only the system that has the token gets to talk.
+
+###Mesh Network
+
+If a system in a mesh network fails, there is probably another pathway to get btw one system and another. While I can connect systems together in
+multiple ways in a mesh network, in spite of the orderliness that the circular design of the network shows, a couple of failures can potentially
+isolate nodes in a mesh network. The way around that is to add connections. The more pathways to get from one system to another, the less chance
+failure will be catastrophic, meaning communication doesn't happen. The problem with adding more connections is the resulting complexity.
+
+###Hybrid
+
    
