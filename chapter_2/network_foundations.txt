@@ -53,7 +53,7 @@ it doesn't describe anything in particular.
 The TCP/IP architecture is a much simpler design than the OSI model, which is an immediate difference and a reflection of the as-built nature of the
 design as compared with the conceptual design of the OSI.
 
-##Topologies
+#Topologies
 
 Some topologies are only found in certain situations. Some will be found in service provider networks, while others are more commonly found in local
 area networks.
@@ -63,12 +63,12 @@ the end, whether I'm connecting virtual machines or containers or physical syste
 these topology models. The topology tells me how traffic flows from one system to another and what intermediary devices the communication passes
 through, which will help me determine where I may be able to intercept or manipulate traffic.
 
-###Bus Network
+##Bus Network
 
 It consists of a single network cable to which every device on the network connects. A bus is a communication channel. There is no mediating device,
 all of the computers are connected directly to one another by means of that single network cable.
 
-###Star Network
+##Star Network
 
 The difference btw the bus and the star network is that there is a mediating device btw all the devices. This may be a hub, which is a repeater, or
 may be a switch, which the signal will be sent to the correct port. And this is where the different layers are helpful. A switch, which is the most
@@ -77,18 +77,103 @@ In the case of a star network with a hub, there are the same issues as there wou
 out on the wire run over other messages sent by someone else. A switch alleviates those issues because only traffic addressed to a system gets
 sent to that system.
 
-###Ring Network
+##Ring Network
 
 A ring network is similar to a bus network in the sense that all of the nodes on the network appear to be connected on a contiguous network segment.
 Only the system that has the token gets to talk.
 
-###Mesh Network
+##Mesh Network
 
 If a system in a mesh network fails, there is probably another pathway to get btw one system and another. While I can connect systems together in
 multiple ways in a mesh network, in spite of the orderliness that the circular design of the network shows, a couple of failures can potentially
 isolate nodes in a mesh network. The way around that is to add connections. The more pathways to get from one system to another, the less chance
 failure will be catastrophic, meaning communication doesn't happen. The problem with adding more connections is the resulting complexity.
 
-###Hybrid
+##Hybrid
 
-   
+There are circumstances where blending multiple network topologies is the right way to go about connecting my network. One common hybrid approach
+is the star-bus. If I have switches capable of 64 network connections but I have 200 users that I need to connect to my local network, I would need
+to effectively add a bus into my network topology. The bus would connect all of my switches together and become a backbone for my network. Then from
+each switch, I have the traditional star where all the connections come back to the switch they are connected to.
+
+Hybrid networks are most common in the physical world where we are bound by physical networking equipment and cables.
+
+#Physical Networking
+
+At some point, I need to connect to the network. There are multiple components to that interaction. I need a network interface on my end. I need a
+medium that is going to carry the communication. I need to have something on the other end of the communication. Because I'm not likely going to be
+working at service providers or telecommunications providers as I'm doing security testing, I'm not going to worry about protocols like Frame Relay,
+Asynchronous Transfer Mode or Fiber Distributed Data Interface. The protocol I will almost exclusively run across when I am talking about physical
+networking is Ethernet.   
+
+Each layer of the network stack has a different term to refer to the chunck of data encapsulated by that layer. These chunks are called protocol data
+units (PDUs). The PDU at layer 2 is a frame.
+
+##Addresing
+
+Ethernet interfaces all have addresses. These addresses are exclusively to each network interface, and they are called MAC addresses. Because the MAC
+address is hard-coded into the hardware of the interface, it is sometimes referred to as the hadware address. Since it's also the address that is used
+by a physical piece of hardware, it is sometimes referred to as physical address.
+
+The common format of a MAC address is 6 octets (8-bit bytes) separated by colons, BA:00:4C:78:57:00. The address is broken into two parts. The first
+is the organizationally unique identifier (OUI). This is also called the vendor ID. The second half of the MAC address is the unique address within
+the vendor ID of that interface. So, half is for the vendor, and half is ofr the card itself.
+
+###MAC Addresses
+
+The MAC address is represented in hexadecimal values because it's a common way to represent octets. A pair of hexadecimal values covers the range of
+potential values of a byte -- 00 is 0 and ff is 255.
+
+The MAC address is used exclusively on my local network. Any system that wants to send me anything will address it to my MAC address. I can also send
+messages to every device on the network by using the broadcast address. The broadcast MAC address is ff:ff:ff:ff:ff:ff. My network interface knows
+what address it has, because it's in the hardware. What this means, though, is that traffic that is in some way addressed to the interface, either
+directly to its address or to the broadcast address
+
+###Switching
+
+MAC addresses are the cornerstone for switching. Switching is what happens when decisions about forwarding messages are made based on the physical
+address. A switch is realy a multport bridge. A bridge is a device that connects two networks together, passing traffic btw them based on the
+destination MAC address. Local traffic stays on one side of the bridge; traffic destined for the other side gets passed over. This does, though,
+mean that the switch needs to know what MAC address lives at which port. It does this by waiting until a message comes in on each port and notices the
+source address.
+
+Because having to perform a lookup of which port to forward a message takes time, which will slow down message transmission, it's essential that the
+lookup be as fast as possible. This is generally accomplished through the use of something called content-addressable memory (CAM). This means that to
+look up a value, I search for it based on another value. It's easier to look up a port value by just indexing to the MAC address.
+
+What a switch does, which is the value of switching, is make determinations about what traffic goes to which port based on the destination MAC
+address. When performing security testing, acting like an attacker, it's more convenient to be able to see more traffic than that.
+
+There are some ways around that challenge. One of them, if I have some control over the switch, is to tell the switch to mirror traffic on one port to
+another port. Then, I need to have the system I'm running attacks from attached to the mirror port. Another way is to fool the switch into sending
+traffic to me.
+
+###IP
+
+Moving into the Network layer, I run across IP. As each layer is passed through, a set of data is added to the message that is specific to the
+protocol processing the message. These sets of data are called headers. Each protocol has its own set of headers that get attached. The message is
+then encapsulated by the headers, creating an entirely new PDU. For IP, the PDU is called a packet.
+
+###Headers
+
+###Octets vs Bytes
+
+###Addressing
+
+
+
+###Subnets
+
+I may need to know what addresses belong to my target based on a subnet. IP addresses are aggregated into networks using contiguous addresses. A part
+of the IP address belongs to the host and a part belongs to the network. This segmentation of the addresses also helps systems to know what addresses
+are local, meaning the communications stay on the local network. The way systems are told what are local networks and what are not local networks is
+that a subnet mask is paired with the IP address.
+
+To determine what portion of an IP address belongs to the network, I look at the bits that are set to 1 in the subnet mask.
+
+
+
+
+
+
+
