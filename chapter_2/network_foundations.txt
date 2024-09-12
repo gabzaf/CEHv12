@@ -378,6 +378,6 @@ infrastructure requirements necessary to implement ths type of VPN.
 
 ##Cloud Computing
 
-
+There are a number of cloud computing services.
 
 
