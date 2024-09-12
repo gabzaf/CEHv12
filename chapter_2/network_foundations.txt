@@ -148,7 +148,7 @@ There are some ways around that challenge. One of them, if I have some control o
 another port. Then, I need to have the system I'm running attacks from attached to the mirror port. Another way is to fool the switch into sending
 traffic to me.
 
-###IP
+##IP
 
 Moving into the Network layer, I run across IP. As each layer is passed through, a set of data is added to the message that is specific to the
 protocol processing the message. These sets of data are called headers. Each protocol has its own set of headers that get attached. The message is
@@ -225,7 +225,7 @@ exclusively to indicate which part is network and which is host. The same rules 
 network means that the first 50 bits of the address are network designation. This leaves the remaining 78 bits (IPv6 addresses are 128 bits long) for
 the host. That would be an incredible large network.
 
-###TCP
+##TCP
 
 Moving to the transport layer, I first run across the TCP. Where IP is a best effort protocol, meaning that a best effort is made to get messages from
 one system to another, TCP is said to have guaranteed delivery. There are mechanisms in the protocol that keep track of all the messages that are sent,
@@ -267,7 +267,48 @@ the destination port is the ephemeral port assigned to the application that is c
 - Options:
 
 TCP uses multiple mechanisms to ensure a reliable service. The first is that TCP is connected-oriented. Connections are established using what is
-called a three-way handshake. The handshake
+called a three-way handshake. The handshake ensures that both sides of the conversation are live and active because they are expected to respond.
+
+##UDP
+
+##Internet Control Message Protocol
+
+The ICMP is a special case when it comes to protocols, in that it doesn't carry user data. Instead, it works with other protocols to provide error
+and control messaging. When something unexpected happens on the network, devices will generate ICMP messages to send back to the originating device
+to let them know that there was a problem. It does sit on top of IP, because it needs the addressing of IP, but it is considered to be part of the
+Internet layer as IP is. This also makes it a bit of an unusual protocol, because it sort of sits above the Network layer but isn't a Transport layer
+protocol.
+
+ICMP is efined in RFC 792, which specifies a header of 8 bytes. This consists of the type and code fields, which convey the essential information for
+ICMP, a checksum field, and then 4 bytes that are labeled "rest of header". The type and code are each a byte, and the checksum is 2 bytes. The rest
+of the header field contains data related to the type and code. The type and code define what goes into those 4 bytes.
+
+The type message indicates the message being sent. It may have values that refer to echo reply, echo request, destination unreachable, source quench,
+or time stamp messages. Each type may have multiple subtypes. The different subtypes are specified by the code field.
+
+Anyone doing security testing or pentest will most commonly run across ICMP messages through the use of ICMP echo request and echo reply messages.
+These are used by the ping program. I may also use the traceroute program to get the network route to a destination. The traceroute program relies on
+two ICMP messages. The first is ICMP type 11, which is time exceeded in transit. When the traceroute completes, the program expects to get an ICMP
+type 3, destination unreachable message. This is dependent, in part, on the implementation of traceroute.
+
+##Network Architectures
+
+Pulling the topology together with data flows and other network elements will give me a network architecture. This describes the protocols that are
+used and where they are used, and I may also get security enclaves as part of a network architecture. I'll also have to contend with the idea of
+multiple locations.
+
+From a security perspective, there are other elements to consider, including isolation. This may mean categorizing systems based on usage and risk.
+Some systems, especially those that need to be directly facing the Internet -- meaning that external users will make network connections to those
+systems as normal course of operation -- may be kept separate and protected from systems where users are or even where sensitive data is stored.
+
+###Network Types
+
+I can have systems that are hundreds of miles apart appearing as though they are on the same physical network segment together. Because of that, I can
+talk about diff types of networks based on their geography:
+
+- Local Area Network (LAN): 
+
+##Cloud Computing
 
 
 
