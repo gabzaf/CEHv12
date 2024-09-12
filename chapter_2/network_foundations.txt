@@ -306,7 +306,75 @@ systems as normal course of operation -- may be kept separate and protected from
 I can have systems that are hundreds of miles apart appearing as though they are on the same physical network segment together. Because of that, I can
 talk about diff types of networks based on their geography:
 
-- Local Area Network (LAN): 
+- Local Area Network (LAN): All of the systems are local and probably in the same room. These systems would be in the same broadcast domain or
+collision domain, phrases that mean the systems can communicate using layer 2 without having to route to other networks. However, they may not
+necessarily be communicating using layer 2. They could still be local but on a separate network segment, which would mean the traffic btw those
+network segments would need to be routed.
+- Virtual Local Area Network (VLAN): A VLAN is a LAN where the isolation at layer 2 is handled by software/firmware rather than physically. This means
+that some switches can be segmented into separate networks with some systems on one network segment (VLAN) and some systems on another network
+segment (VLAN). To get from one VLAN to another, the traffic would have to cross over a layer 3 boundary (router). This sort of segregation helps to 
+maintain network performance. It also helps with logical organization on of the network so the same set of traffic policies can be applied across the
+entire VLAN. With a VLAN, I can place a firewall btw my network segments. While I can run host-based firewalls, it's far easier to maintain a single
+network firewall and restrict traffic based on the needs of each network to cross the layer 3 boundaries.
+- Wide Area Network (WAN): A WAN is a network whose nodes are more than 10 or so miles apart. Any ISP would have a WAN. Businesses may have WANs
+where they have network connections that provide links btw their different office locations. There are number of ways to provide that sort of
+connectivity btw geographically dispersed locations, including virtual private networks, private network circuits, or just tunneling traffic without
+encrypting it as virtual private network would do.
+- Metropolitan Area Network (MAN): A MAN sits btw LAN and WAN. I may find this if a company has a campus with multiple buildings. Each building would
+have a LAN (or multiple LANs), but the connection of LANs btw all the building would be a MAN. The same would be true if a city had connections btw
+all of its different offices and buildings, spread around the city. Those connections would be a MAN
+
+##Isolation
+
+Network isolation is an important concept. In fact, it's a widely recognized approach to separating network elements in order to protect sensitive
+data. Additionally, it would be used to separate externally accessible systems from those that are strictly internal. There are several ways to
+achieve this isolation.
+
+A common approach is to use a demilitarized zone (DMZ). This is a network segment where any untrusted system would be placed. Access to this network
+segment could be tightly controlled using a firewall or access control lists. The DMZ may hold systems like the web server, for example. It may also
+hold an email gateway to filter messages coming in before sending them on to the internal email server. There are many uses for a DMZ to isolate
+untrusted systems from the remainder of the network. An untrusted system is one that anyone from the internet can get access to, which means it could
+be compromised in some way through the service that's exposed. Firewalls and/or access control lists prevent people from the outside getting access to
+internal suystems. It also prevents any system inside the DMZ from commnicating with systems inside the enterprise.
+
+If I'm using a DMZ, that suggests network isolation along with tight access control and restrictive rules around acessing the network. Network 
+segmentation can also isolate other systems, without necessarily introducing the firewall rules or access control lists. There may also be many other
+network segments. Each of them would have different trust levels. For example, there may also be a guest network to allow vendors and other visitors
+to have network access without any ability to get access to any of the internal systems.
+
+DMZs are not the only way to isolate networks. Protecting the rest of the network from Internet-facing services is also not the only reason to do
+network isolation. A common way of protecting higly sensitive information is to use enclaves. An enclave is an isolated network segment where tight
+controls may be placed. if I had any payment card data, such as credit card information, for instance, the systems may require not only additional
+protections but also additional monitoring. This may involve firewalls and intrusion detection systems, both at the network and host levels.
+
+Orgs may have several enclaves that are created for specific types of data. Credit card data (often called PCI for the org, Payment Card Industry,
+that manages the data security standards) is a common one, but I may also see an enclave for personal health information (PHI).
+
+I may run across microsegmentation, where segments are defined based on workload, which is the collection of systems and services necessary for an 
+application to function. This can be done easily in a virtual environment, where I can contain systems within the hypervisor or other control
+platform that manages the virtual infrastructure. Additionally, though, software is being used to provide this level of segmentation. The
+microsegmentation allows security controls to be applied across a specific set of systems related to an application or service.
+
+###Remote Access
+
+This wouldn't normally be handled across the open Internet but instead through the use of encryption. Virtual private networks are a way to gain
+access to the internal network from remote locations. VPNs, though, are not all created equal. There are different ways to accomplish this remote
+access.
+
+In some cases, the remote access is a satellite office. In that case, it may not make sense to have direct, private line from site to site. Instead,
+the network provider may offer something within their network to get from one location to the other. This may be done using Multiprotocol Label
+Switching (MPLS), for example. MPLS provides what is essentially a tunnel from one location to another by encapsulating traffic inside a label where
+the traffic gets switched from one location to the other.
+
+More commonly, at least in terms of volume, there is a need for user-to-network connectivity. Even here, there are multiple ways to accomplish the
+task. One way, which has been around for decades at this point, was part of the work on IPv6. IP Security (IPSec) is a set of extensions that,
+in part, provide for encryption from one location to another. IPSec comes with a number of protocols that provide not only encryption but also
+message authentication, user authentication and key exchange. Because IPSec isn't an inherent part of IPv4, it requires the use of some other
+mechanism to implement over IPv4 networks.
+
+Another type of VPN connection is a Web connection that use Transport Layer Secure (TLS), which is the current implementation of encryption for web
+traffic, superseding Secure Sockets Layer (SSL). As this is a well know and commonly used methods of encryption, companies often have many of the
+infrastructure requirements necessary to implement ths type of VPN.
 
 ##Cloud Computing
 
