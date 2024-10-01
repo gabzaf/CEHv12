@@ -56,6 +56,81 @@ determinado momento, eu faco login. Essa informacao sera atualizada na sessao qu
 
 Integrity, it turns out, is very complex.
 
+##Availability
+
+The most commonly compromised property. It comes down to whether information or services are available to the user when they are expected to be.
+
+#Parkerian Hexad
+
+There are three additional properties:
+- Possession (or Control);
+- Authenticity or Nonrepudiation;
+- Utility;
+
+#Information Assurance and Risk
+
+Risk is the intersection of loss and probability. Probabilities of information security events are hard to calculate. Loss is easier to quantify.
+$risk = probability * loss.
+
+It can be tempting to think about risk as loss. Predicting every possible event can be challenging. This is what makes information security difficult --
+understanding events, probabilities and outcomes for my org and then planning to protect against negative events.
+
+A threat is something that has the possibility to incur a breach of confidentiality, integrity or availability. The avenue this breach may take is called a vulnerability.
+A vulnerability is a weakness in a system. This may be its software, its configuration, or how the entire information solution is put together. When the vulnerability is
+triggered, it is called an exploit. We exploit vulnerabilities, though not all vulnerabilities can be exploited. Race conditions are examples of vulnerabilities that may
+not be able to be exploited.
+
+A threat agent or a threat actor is an entity, like a person or grooup, that can instantiate a threat. The threat agent is who manifests a threat. The pathway the
+threat agent takes to exploit a vulnerability is called a threat vector. All of these concepts are important because they help to better understand where risk lies.
+Once I have identified what resources I care about, I should think about what threat agents may care about those resources. This can help me to identify potential
+vulnerabilities. Once I know what my vulnerabilities are and the potential threat vectors, I can start to think about how I am going to protect against those threats.
+
+
+Information assurance is the practice of identifying risks associated with the information assets, then instituting controls to better protect the asset or
+resource. A control is a means of ensuring the confidentiality, integrity or availability of an information security resource. These controls may be preventive, detective
+or corrective. A preventive control is one that intends to keep something bad from happening. Unfortunately, ths is not always possible, which means
+detective controls are useful. A detective control is one where a violation of confidentiality, integrity or availability is identified so the violation can
+be addressed. Finally, a corrective control is one that intends to limit the amount of damage that may have been confused.
+
+Security controls end up having two factors. In addition to controls having goals, as described earlier, they will fall into one of three different types. A control
+may be technical, administrative or physical. A technical control is hardware or software that has been implemented to provide protection of assets. This may be an
+authentication solution, a firewall, antivirus or a security incident and event manager used to alert on something bad happening. An administrative control is
+is a policy, procedure, or guideline that gives direction on how protections should be implemented. Finally, physical controls are used to keep people away from
+assets in a kinetic way, meaning someone can't walk up to a building and just enter it.
+
+Information assurance is about managing risk.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
