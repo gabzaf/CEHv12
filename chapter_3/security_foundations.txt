@@ -98,7 +98,11 @@ authentication solution, a firewall, antivirus or a security incident and event 
 is a policy, procedure, or guideline that gives direction on how protections should be implemented. Finally, physical controls are used to keep people away from
 assets in a kinetic way, meaning someone can't walk up to a building and just enter it.
 
-Information assurance is about managing risk.
+Information assurance is about managing risk. This means not just identifying risk and how to categorize it, but also making business decisions about how to handle the risk.
+Businesses may handle risk in different ways, depending on the level of risk and their risk appetite.
+
+- Acceptance: It's an informed process where the business fully understands the nature of the risk, meaning the impact and the probability and choose not to do anything
+about the risk. This
 
 
 
