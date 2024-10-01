@@ -1,3 +1,63 @@
 #Topics covered: Elements of infosec, risk management and info assurance.
 
+Orgs spend lots of money and time on defenses and mitigations against attacks. There are some fundamental concepts that go into the planning and
+implementation of these defenses.
+
+Alongside knowing what you are protecting against, I need to know what I'm protecting. Performing risk assessments will help with that. Identifying
+potential risks and associated potential losses can help with decision making around where to expend limited resources -- budget, staffing, capital
+expenditures, and so on. It'll also help security professionals determine what policies they need in place to guide the actions of employees overall
+and, more specifically, info tech staff. From policies flow standards and procedures. They are all considered essential for determining how a company
+approaches protecting its information assets.
+
+Once I have my policies in place, decisions can be made about how best to protect information resources. Beyond staffing, there is technology that can
+be brought to bear.
+
+The technology alone doesn't provide protection. Where these elements and devices are placed is important, and those decisions are made based on ideas
+such as defense in depth and defense in breadth.
+
+#The CIA triad
+
+The triad is a set of three attributes, or properties, that define what security is. The elements are confidentiality, integrity and availability. Each of
+these properties needs to be taken into consideration when developing security plans. Each of them, to varying degrees of importance, will be essential in
+planning defenses. Not every defense will incorporate each of the three properties to the same extent. Some defenses impact only one property, for instance.
+From an attack perspective, a tester or adversary would be looking to compromise one of these elements within an organization. The properties all have equal
+value when it comes to the overall security posture of an organization. If any of the properties is removed or compromised, the security of my org has also
+been compromised. It takes all these properties to ensure that me and my informaton are being protected.
+
+##Confidentiality
+
+Confidentiality means keeping secrets. This encompasses a lot of different aspects. It means making sure no one gets unauthorized access to information. This
+may mean using strong passwords on my user accounts to make sure attackers can't get in. It may mean keeping certain information offline so it can't be access
+remotely. Commonly, though, a simple way to achieve confidentiality is through the use of encryption.
+
+When I talk about confidentiality, I should be thinking about it in two dimensions - static and dynamic. Static would be protecting data that is considered "at
+rest", which means is not moving. The dynamic is when the data is moving or "in motion". This refers to data when it is being sent from one place to another. As
+the data is being transmitted, it is in motion. It's this transmission that makes it dynamic and not necessarily that is being altered, though data being sent
+from one place to another could definitely be experiencing alteration through interaction with the user and the application.
+
+When I'm making use of encryption for web based communication, the Secure Sockets Layer/Transport Layer Security (SSL/TLS) protocols are used. While TLS has long
+since superseded SSL, it is still sometimes referred to as SSL/TLS. Regardless of how it's referred to, though, it is a set of mechanisms for encryption data. SSL
+and TLS both specify how to generate encryption keys from data that is known, as well as some partial data that is transmitted from one side to the other.
+
+Since encrypted data can't be read without a key, the confidentiality of the data is protected. 
+
+##Integrity
+
+A man-in-the-middle attack is one way for an attacker to compromise integrity. The attacker intercepts the data in transit, alters it and sends it on the way. When I
+browse to a website that uses encryption, a certificate is used to provide keying, meaning the certificate holds keys used for encryption and decryption. When a certificate
+contains a name that is different from the hostname being visited, my browser will generate an error.
+
+A certificate might show that it belongs to site.com. However, the website that was visited was etis.com.br. If I did not know that one website belongs to the other, I might
+begin to question whether I was being hijacked in some way. An attack in this situation may have resulted in an attacker gathering information from my session, which I
+wouldn't have expected because I believed the session was encrypted. Worse, the information I got could have been altered while the attacker got the real information.
+
+Note: Uma sessao nada mais eh do que identificacao do visitante. Entao, quando eu acesso um site, talvez ele defina uma "sessao" para mim, ou seja uma identificacao. Em
+determinado momento, eu faco login. Essa informacao sera atualizada na sessao que me identifica no servidor.
+
+Integrity, it turns out, is very complex.
+
+
+
+
+
 
