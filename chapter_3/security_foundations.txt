@@ -159,31 +159,64 @@ publications. The ISO maintains ISO 27001 and ISO 27002. There are other standar
 The second type of standard is one that provides detailed guidance for how to implement policies within orgs.
 
 For example, a policy that states that all systems will be kept up-to-date. To get closer to implementation of that policy, I might have standards that relate to
-desktop systems, server systems, network devices. The requirement 
+desktop systems, server systems, network devices. The requirement for each of those device types may be different, so the standards for them may be different.
+Desktop systems may just be expected to take all updates as they come, with the expectation that any potential outage could be remediated quickly on the off chance
+that there was an outage on a handful of users' desktops.
 
+Servers, on the other hand, would be in place to service customers and possibly have revenue impacts. Since that's the case, the standard may be different. The
+standard, still focused on how to achieve the objective set out in the policy, may say that there is a quality assurance process that is necessary before patches
+may be deployed. The service level agreement (SLA) on those server systems may be completely different in terms of acceptable outages. The standard for the
+server systems may be different from the desktop systems, but both are written in service of the high-level policy that systems are kept up-to-date. The standard
+would define anything that was vague in the policy to make it relevant to operational staff.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+The standards are still high level in the sense of setting requirements for how policies should be implemented. These requirements still need to be implemented.
+That leads me to another step.
 
 ##Procedures
 
+Procedures are the actual implementation of the standard. These provide guidance about how, specifically, the standards are achieved at a granular level. This may
+be accomplished with step-by-step instructions on what needs to be done. There may be multiple procedures for each standard, since there may be multiple orgs involved
+in implementing the standard.
+
+I can see that with high level guidance like that in policy, I likely wouldn't have to touch it often. Policies are revisited on a regular basis, but the time scale
+for when the policies change would be measured in years, if the policies are well considered and well written. Standards, though, may need to be updated more regularly
+Information asset changes would result in standards being updated. Any change in technology within the organization may result in an update to standards. Procedures
+will likely change even more regularly.
+
+As orgs in the company shift or responsibilities shift, procedures will shft to accommodate them. Additionally, a good procedure would have feedback loops built in
+so the procedure could be regularly revised to be more efficient. Any change in automation would result in procedure changes. As we go through each layer from the 
+top of the security program down to the very bottom, the result is more regular updates as we get to specific steps in implementations and administration.
+
 ##Guidelines
+
+I may not run into guidelines as I'm looking at security programs. Guidelines are not standards in that they may not be requirements. Instead, they are suggestions
+on how policies may be implemented. A guideline may provide information about best practices, with the hope that the best practices may follow.
 
 #Organizing my Protections
 
+There are a lot of diff ways of thinking about infosec. From a governance perspective, I need to think about policies, standards and procedures. However, once I have
+all of those in place, I still need to think about how I'm going to best protect my assets, not to mention ensure I'm able to detect any attempt to negatively impact
+those assets, no matter what they are. One way to think about evaluating protections of my assets is by reviewing what attackers are most likely to do. If I know
+what actions the attackers are going to take, I could develop not only protections but also detections of those actions, which helps me to be prepared. While I can 
+use the Lockheed Martin cyber kill chain or the attack lifecycle advocated by FireEye Mandiant, another way to get even more detail is to make use of the MITRE
+ATT&ck Framework.
 
+The MITRE Corp developed ATT&CK in 2013 to collect common tactics, techniques and procedures (TTPs) used by attackers. The way MITRE saw it, existing frameworks
+like the cyber kill chain were too high level and not applicable to real world incidents. The idea behind ATT&CK is to collect these TTPs from adversaries, so
+the collection is always growing as more TTPs are identified. These TTPs are described in detail, so protection and detection controls can be developed.
+
+While there are diff attacker types, including hacktivists who may be just looking to make a point in the public consciousness, the most dangereous ones are ones
+that are sometimes called advanced persistent threats (APTs). These are attackers who use a large number of TTPs to gain access to a business environment for as
+long as they can. In some cases, these attackers may remain in place for years. There have been cases in recent memory where attackers have been found to have
+remained in place for seven or ten years or more. While I may get some attackers who might do a one-and-done approach, where they are targeting individual
+users and want to just get what they can and get out, increasingly, what we see s these APT attackers. This is worth keeping in mind as I look through the diff
+phases of the ATT&CK framework.
+
+The ATT&CK Framework is broken out into the following stages. I may find these aren't necessarily in the order an attacker may follow, as there may be some overlap
+or even bouncing back and forth. Additionally, some TTPs will fit into diff categories here
+
+- Reconnaissance: The attacker is gathering info about the target in this stage. They may be searching through open sources where data is freely available.
+ 
 
 
 
