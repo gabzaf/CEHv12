@@ -302,6 +302,8 @@ Even detection solutions are multilayered because of the number of entry points 
 by an active one. This can be incident response, and incident response may require automated collection of artifacts. All of these may require diff technology
 solutions.
 
+##Firewalls
+
 
 
 
