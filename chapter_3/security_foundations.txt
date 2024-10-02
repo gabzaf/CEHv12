@@ -216,9 +216,31 @@ The ATT&CK Framework is broken out into the following stages. I may find these a
 or even bouncing back and forth. Additionally, some TTPs will fit into diff categories here
 
 - Reconnaissance: The attacker is gathering info about the target in this stage. They may be searching through open sources where data is freely available.
- 
+They may be using closed sources they have access to. Additionally, they may be performing scanning activities here. This stage also includes attackers using
+phishing techniques to trick victims to give up data;
 
+- Resource Development: The attacker has to do a lot of work to create an infrastructure they will use to launch attacks from. This may include registering
+domain names, creating accounts, acquiring systems (probably by compromising other victims and using their computing infrastructure). They may also need to
+acquire tools they don't have themselves. This could be renting or purchasing toolset that may be available through criminal channels;
 
+- Initial Access: The attacker here compromises the first systems. They may compromise an existing public-facing application or website. They may use
+phishing to get malware installed on a target system. They are getting their initial foothold into the organization in this stage. Any technique that gives
+them access, even if it's as simple as making use of a compromised set of credentials, falls into this stage;
+
+- Execution: There are a lot of techniques an attacker may use to get code executed. The attacker doesn't always have direct interactive access to the
+system, meaning they can't just double click an icon or run a CLI program. They may rely on other techniques to get their code executed. There are a lot
+ways of doing this, including using scheduled tasks, interprocess communication, system services or operating system -- specific techniques like using the
+Windows Management Instrumentation (WMI) system.
+
+- Persistence: With persistence, the attacker is trying to maintain consistent access to the system they have compromised. Systems reboot, sometimes they
+are powered down and later restarted, or sometimes users log out and then later log back in. This means programs that are executing will stop executing 
+unless there is a way to get the program executing again. As the attacker is not sitting physically at the system, where they can do what they want, it's
+necessary for the attacker to have a means of getting remote access. This is often done through software the attacker has installed on the system. This
+software needs to execute, likely when the system boots. This is another case where system services are useful, though scheduled tasks are also useful as are
+system and user configs through technicques like registry keys on Windows systems. Linux systems may use startup files such as .bashrc to get programs
+executed when a user logs in.
+
+- Privilege Escalation: With privilege escalation, attackers are trying to get the highest level of privileges they can. Most
 
 
 
