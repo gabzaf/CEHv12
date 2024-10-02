@@ -141,7 +141,47 @@ business owners; board of directors and so on.
 
 Keep in mind that security policies are all high-level. They don't provide specifics, such as how the policies should be implemented. If I'm looking at security policies
 and I'm starting to think about the operational impacts and how the admiistrative would handle the policy, I'm too close to the ground, and it's time to beat my wings
-a bit more to get much higher up. Also, I
+a bit more to get much higher up. Also, I'm thinking conceptually for what should be long-term rather than something specific to a point in time. This means that technology
+and solutions have no place in the policy. Other information security program elements will take care of those aspects.
+
+##Security Standards
+
+The security policy is at the top of the food chain. There may also be subpolicies that flow down from the top-level security policies. The subpolicy should
+refer to the overall policy so the high-level policy doesn't get lost. Below the policy level, though, are security standards. A standard is direction about how policies
+should be implemented. The standard starts down the path of how we get from statements of intent to implementation, so I start to drill down from the high level of the
+policy.
+
+There are two meanings for the term security standard.
+
+There are sets of standards that provide guidance for organizations and are managed by standards bodies. The NIST has a set of standards, documented in several special
+publications. The ISO maintains ISO 27001 and ISO 27002. There are other standards documents that may be relevant to me, depending where I'm in the world.
+
+The second type of standard is one that provides detailed guidance for how to implement policies within orgs.
+
+For example, a policy that states that all systems will be kept up-to-date. To get closer to implementation of that policy, I might have standards that relate to
+desktop systems, server systems, network devices. The requirement 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##Procedures
+
+##Guidelines
+
+#Organizing my Protections
 
 
 
