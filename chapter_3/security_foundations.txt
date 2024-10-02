@@ -60,7 +60,7 @@ Integrity, it turns out, is very complex.
 
 The most commonly compromised property. It comes down to whether information or services are available to the user when they are expected to be.
 
-#Parkerian Hexad
+##Parkerian Hexad
 
 There are three additional properties:
 - Possession (or Control);
@@ -85,7 +85,6 @@ threat agent takes to exploit a vulnerability is called a threat vector. All of 
 Once I have identified what resources I care about, I should think about what threat agents may care about those resources. This can help me to identify potential
 vulnerabilities. Once I know what my vulnerabilities are and the potential threat vectors, I can start to think about how I am going to protect against those threats.
 
-
 Information assurance is the practice of identifying risks associated with the information assets, then instituting controls to better protect the asset or
 resource. A control is a means of ensuring the confidentiality, integrity or availability of an information security resource. These controls may be preventive, detective
 or corrective. A preventive control is one that intends to keep something bad from happening. Unfortunately, ths is not always possible, which means
@@ -102,7 +101,55 @@ Information assurance is about managing risk. This means not just identifying ri
 Businesses may handle risk in different ways, depending on the level of risk and their risk appetite.
 
 - Acceptance: It's an informed process where the business fully understands the nature of the risk, meaning the impact and the probability and choose not to do anything
-about the risk. This
+about the risk. This means if the risk is actualized , the business will be responsible for all the losses and costs associated with it, as well as any other damage that
+may result. This approach means nothing else is done to the circumstances related to the risk identified.
+
+- Transference: The business may choose to transfer the risk to another entity to manage in some way. One common way to implement risk transference is to buy insurance.
+
+- Mitigation: Risk mitigation is implementing controls that will reduce the risk. Risk reduction can occur on the two vectors that constitute risk -- loss and probability.
+
+- Avoidance: Business may choose to not engage in the activity that could introduce risk to begin with.
+
+#Policies, Standards and Procedures
+
+Security is a business enabler, not a business driver. Because security is a business enabler, the business sets the parameters around what is important and the means
+to protect what is important. It does that by creating policies. Once the policies are created, standards are built out of those policies. Closest to where the
+work actually gets done are procedures. These are developed because of what the standards say.
+
+##Security Policies
+
+A security policy is a statement of intention with regard to the resources of a business. It defines what a company considers to be security -- what resources need to be
+protected, how resources should be utilized in a proper manner, how resources can or should be accessed. These policies are essential to good corporate governance,
+since the policies are lines that management draws. This means that having management set the tone and direction is not only a good idea, it's also required.
+Management and the board of directors have an obligation to the stakeholders in the business -- the individual owners or the shareholders.
+
+Security policies are not only about defining important resources, they are also about setting expectations of employees. Many organizations, for example, have
+an acceptable use policy. This is about defining what users can and cannot do.
+
+Keep in mind as I'm thinking about security policy that the goals of my policies should be the confidentiality, integrity and availability of information resources.
+All information resources should be confidential, have integrity and be available within the parameters defined by the business. Different information assets will have
+different levels of confidentiality, and not all information has to be available all the time. This is also part of what security policy is for -- to help
+classify and prioritize the information assets of the org.
+
+Not all information resources are bits and bytes stored on computer systems. One area that policy should always take into consideration is how the human resources
+are to be handled.
+
+Policies should be revisited on a regular basis. They are sufficiently high-level that they shouldn't change every time there is a new set of technologies available,
+but they should evolve with changes in the threat landscape. As information resources change and threat agents change, the policies may need to adapt to be
+responsive to those changes. As this is an area of corporate governance, any policy change would have to be approved by whatever management structure is in place --
+business owners; board of directors and so on.
+
+Keep in mind that security policies are all high-level. They don't provide specifics, such as how the policies should be implemented. If I'm looking at security policies
+and I'm starting to think about the operational impacts and how the admiistrative would handle the policy, I'm too close to the ground, and it's time to beat my wings
+a bit more to get much higher up. Also, I
+
+
+
+
+
+
+
+
 
 
 
