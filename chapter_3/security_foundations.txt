@@ -240,7 +240,77 @@ software needs to execute, likely when the system boots. This is another case wh
 system and user configs through technicques like registry keys on Windows systems. Linux systems may use startup files such as .bashrc to get programs
 executed when a user logs in.
 
-- Privilege Escalation: With privilege escalation, attackers are trying to get the highest level of privileges they can. Most
+- Privilege Escalation: With privilege escalation, attackers are trying to get the highest level of privileges they can. Most users don't have much in the way
+of access to their systems. They can get to their data and run programs, but they can't do useful things like install system services or extract system memory.
+This is where getting additional, elevated privilege is helpful. They may do this by injecting code into an existing process that already has administrative
+privileges. They may get a service to run at boot time, since the boot process automatically has elevated privileges. There are a lot of TTPs for privilege
+escalation since it's often a necessary step for an attacker to remain in the environment and gather data, like credentials, they need for further movement.
+
+- Defense Evasion: Attackers will need to get through a lot of diff types of defenses. Businesses certainly, though people as well, make use of software
+on systems to protect against these very attackers. This may be anti-malware or some other detection or prevention software. Attackers need to execute
+software in ways that won't be seen as malicious or suspicious. This may be using an old school technique like using a rootkit, where the attacker may be
+provided remote access while also hiding all of the software being used from the user or other software looking for it. By far, this is the stage or category
+with the most TTPs. As an example, privilege escalation, an important phase in the attack process, has 12 techniques as of this writing, whereas defense
+evasion has 37.
+
+- Credential Access: Applications and systems typically require usernames and passwords to grant access. Attackers will want to try to get these credentials
+for use elsewhere. This may be through using a phishing attack by sending an email to a victim to get that person to provide username and password to the
+attacker. It may be from dumping credentials out of memory -- from the OS but also from applications that may be holding on to credentials. Attackers may also
+be able to use tactics to get the network to give up credentials by forcing authentication against network servers that can provide info to the attacker;
+
+- Discovery: Attackers are probably not going to be satisfied getting access to just my system. They will be looking for additional systems to get access to.
+They will want to look around at what I have access to, from systems to applications. They will be gathering a lot of detail to see what else they may be able
+to access within the target environment.
+
+- Lateral Movement: One of the reasons for doing discovery, in addition to seeing what data I may have access to that may be stolen for profit is to determine
+what other systems may be attacked from my system, The attacker may make use of me and whatever my system has access to. The idea here is to compromise a lot
+of systems because more systems means more data that could be used or stolen. This may be through the use of existing credentials that have already been stolen.
+It may be through the use of the email of the current victim to contact other potential victims.
+
+- Collection: Just as with discovery, collection is about gathering information. This may be information that could be used to attack other systems, or it could
+info the attacker wnats to steal (exfiltrate) for sale or use somewhere else. Once an attacker starts to collect data, this may be more visible than some of the
+other stages because they are leaving behind artifacts. After all, while they are collecting data, that data has to be stored somewhere. Because the attacker will
+be storing info temporarily ahead of exfiltration, files with strange names or other distinguishing characteristics may start showing up in places;
+
+- Command and Control: Keep in mind that attackers will want to maintain access to the systems for as long as possible. After all, if they have targeted my org,
+I have something they want. It's likely I will continue to create this thing they want, whether it's intellectual property or customer info or usernames and
+passwords or credit card data. There's no point in wasting an opportunity by getting in and then leaving. This menas they need to retain remote control over
+the entire environment. This stage is where they set up remote access to the systems in the environment. They may make use of commonly used protocols like
+the HTTP and abuse it by embeding commands btw the server they control and systems in my environment. They can also misuse other protocols like DNS or ICMP;
+
+- Exfiltration: Even if they continue to remain in the environment, they will want to get data they have collected out. This is where they exfiltrate the data.
+They, again, may make use of commonly used protocols since they are less likely to be suspected. The goal is always going to be evading detection as best as
+possible. However, even when they use commonly used protocols, I can detect the existence of the attacker by following the TTPs provided in the framework.
+If an attacker is sending data out using DNS, for instance, the message size is likely to be unusually large, so looking for those unusually large messages
+may let me catch the attacker n action;
+
+- Impact: This is where the attacker may decide to burn the house down, as it were. Some attackers will get what they want and then tear everything down as
+they leave. Others may do the same if they happen to be caught. As I'm trying to get them out of my network and systems, they are tearing down as much as
+they can on they way out. This may be destruction of data, disk wiping, encryption of data, DOS attack ...
+
+The TTPs referenced in the matrix, which I can find on the MITRE website are regularly updated as more become known. Each TTP will have details associated
+with it, and MITRE will provide mitigation steps to prevent the attack from suceeding to begin with. I may also get advice on how to determine whether the
+attacker is making use of that TTP. 
+
+#Security Technology
+
+Invariably, security programs require some technology to implement. Today, the attack vectors have changed a lot from what they were even a decade ago.
+Today's technical solutions are multilayered and aren't entirely focused on prevention.
+
+The assumption today is that prevention isn't popssible if the expectation is that 100 percent of attacks will be repelled. As a result, detection is essential.
+Even detection solutions are multilayered because of the number of entry points into the network. Since the detection is a passive effort it needs to be followed
+by an active one. This can be incident response, and incident response may require automated collection of artifacts. All of these may require diff technology
+solutions.
+
+
+
+
+
+
+
+
+
+
 
 
 
