@@ -417,9 +417,48 @@ setvar:tx.outbound_anomaly_score=+%{tx.critical_anomaly_score},\
 setvar"tx.sql_injection_score=+%{tx.critical_anomaly_score},\
 								setvar:tx.anomaly_score=+%{tx.critical_anomaly_score}, setvar:tx.%{rule.id}-OWASP_CRS/LEAKAGE/ERRORS-
 								%{matched_var_name}=%{tx.0}"
-The rule I see looks in the response body for the message that is found after @rx. This indicates that waht comes next is a regular expression.
 
+The rule I see looks in the response body for the message that is found after @rx. This indicates that what comes next is a regular expression. The regular
+expression describes the message the rule is looking to match on. If the rules matches, the regular expression match will be placed into transaction variable
+collection because of the capture action. There will also be several variables that get placed into the transaction variable collection.
 
+In addition to capturing information, which can be logged and referred to later or be used for alerting, ModSecurity can block as an action. This will prevent
+the message from going past the WAF. What this means is that the WAF sits in front of the web server that is being protected. Sometimes, a WAF like ModSecurity
+is implemented on the edge of the network as reverse proxy, so clients send messages to the reverse proxy, which handles the message on behalf of the server,
+parsing it for potential bad requests, before sending it on to the actual web server. Responses also pass through the reverse proxy.
+
+These are just a couple of examples of application layer firewalls. They may also be called application layer gateways. Any device that can make decisions based
+on what is happening in the application layer protocol and then have the ability to drop the message, regardless of the application layer protocol, could be
+considered an application layer firewall.
+
+###Unified Threat Management
+
+Sometimes a firewall alone isn't enough. Even in the case of application layer firewalls, I still need to protect the users. Users are often the most vulnerable
+point on my network, and they are regularly targets of social engineering and malware attacks. A unified threat management (UTM) device is one that consolidates
+a lot of security functions into a single system that may be placed at a single point in the network. This UTM would replace the firewall, intrusion detection and
+intrusion protection devices as well as offering antivirus protection.
+
+There are downsides to this type of approach. I now have a single point in my network where all of my security is handled. If this device fails for whatever reason,
+I have no backstops in place. If my firewall failed, for instance, I would still have intrusion detection systems to catch anything that got through, if that had
+happened. With UTM, I have one place, and it needs to work all the time and be configured correctly all the time.
+
+###Intrusion Detection Systems
+
+There are two diff types of intrusion detection systems (IDSs) that I can find. The first is a host-based IDS. A host-based IDS watches activity on a local system,
+such as changes to critical system files. It may also watch log files or audit other system behaviors. One of the challenges with a host-based IDS is that once an
+attacker is in position to trigger a host-based IDS, they are on the system, which means they can become aware that the IDS is in place and make plans accordingly.
+
+The second type is a network IDS. Where firewalls have the ability to block or allow packets in the network stream, a network IDS can take some of the same sorts
+of rules and generate log messages. A rule for an intrusion detection system can generally be based on any layer in the network stack. As long as I can create
+some sort of identification for the messages I want to log or alert on, I can write a rule for an IDS. As with the firewalls, there are a number of commercial
+options. There are also some open source options, one of the biggest names being Snort, which is currently owned by Cisco, but free access to the program and
+some community rules is still offered.
+
+A network IDS watches all network traffic that passes by network interface. This means that placement is important. There may be diff approaches to placement,
+depending on the IDS product being used. One of these approaches is to place the IDS connected in parallel rather than in series at the very perimeter of the
+network so all network traffic coming can be observed.
+
+ 
 
 
 
