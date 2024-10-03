@@ -366,6 +366,60 @@ these capabilities provide a lot of potential for keeping bad people out.
 
 ###Deep Packet Inspection
 
+One of the biggest issues when it comes to firewalls is that they allow known services through. A firewall will allow connections to a web server through.
+This means attack traffic to the web server will just be let through the firewall. Attack traffic that uses the application against itself will set up
+connections just like any other client. From the standpoint of the packet filters and stateful filtering, the messages will pass through. Because of that,
+we need to go deeper. Just looking at the protocol headers is insufficient, because everything will look correct and legal in the headers. We need to
+start looking at higher layers of the stack.
+
+A deep packet inspection (DPI) firewall looks beyond the headers and into the payload of the packet. With this approach, it's easier to identify malware
+and other inbound attacks. A DPI firewall would require signature that it should look for in the packet to determine whether something is going to be malicious
+so it can block the traffic from coming into the network. To do this, the firewall has to parse the entire message before it can make any determinatons. This
+means it has to have at least the entire packet, meaning any fragmentation at the IP layer has to arrive and be reassembled. In some cases, it may need the
+entire stream, whether that's UDP or TCP. This certainly means a little latency on the arrival of messages.
+
+Packet filters and stateful firewalls don't need to reassemble anything, assuming the entire header has arrived. Any message that doesn't have the entire set
+of IP and TCP/UDP headers is likely a problem anyway, since that's well under 100 bytes. Fragmenting a message at under 100 bytes could be a result of malicious
+traffic, trying to fool a firewall or other security solution. They belong together. Only looking at the headers is limiting, though, especially since so many
+attacks today come in over the higher-layer protocols.
+
+One consideration to keep in mind, though, is that encrypted traffic can't be inspected. The firewall won't have the key to decrypt the message to look at it.
+Any man-in-the-middle approach to encryption on the part of the firewall violates the end-to-end expectations of most encryption solutions and users. The headers,
+of course, aren't encrypted. If they were, no intermediate device would be able to determne where anything was going. This means packet filters and stateful
+firewalls are not impacted by encryption. DPI firewalls, though, are. This means that with the move to encryption over all web-based connections, DPI
+firewalls don't do a lot to protect the web server.
+
+###Application Layer Firewalls
+
+There are application layer firewalls in addition to the DPI firewalls. While these firewalls also inspect the packet, they commonly are specific to a particular
+protocol. For example, in a voice over IP (VoIP) networks, a device called a session border controler (SBC) can be used. This is a device that understands the VoIP
+protocols -- commonly either H.323 or the Session Initiation Protocol (SIP). As such, it not only can make determinations about the validity of the messaging but
+also can open up dynamic pinholes to allow the Real-time Transport Protocol (RTP) media messages through, since they would be over diff ports and protocols than
+the signaling messages would be.
+
+An SBC would be an example of an application layer firewall, since it has the capability of making decisions about allowing traffic through. It makes decisions
+based on understanding the application layer protocol and common state flows of that protocol.
+
+Another common application layer firewall would be a web application firewall (WAF). The WAF uses a set of rules to detect and block requests and responses. Given
+the number of web based attacks, keeping up with these rules can be challenging. While there are several commercial WAFs, there is also ModSecurity, which is an
+open source module that can be used with Apache web servers. The rules can get complicated, and I can see an example in the following code listing.
+
+	[mod-security Rule]
+		secRule RESPONSE_BODY "@rx (?i)(?:supplied argument is not a valid MySQL|Column count doesn't match value count at row|mysql_fetch_array\(\)|on
+MySQL result index|You have an error in your SQL syntax;|You have an error in your SQL syntax near|MySQL server version for the right syntax to use|\[MySQL\]
+[ODBC|Column count doesn't match|Table '[^']+' doesn't exist|SQL syntax.*MySQL|Warning.*mysql_.*|valid MySQL result|MySQLClient\.)"
+\
+		"capture,\
+	       setvar:'tx.msg=%{rule.msg}',\
+
+setvar:tx.outbound_anomaly_score=+%{tx.critical_anomaly_score},\
+
+setvar"tx.sql_injection_score=+%{tx.critical_anomaly_score},\
+								setvar:tx.anomaly_score=+%{tx.critical_anomaly_score}, setvar:tx.%{rule.id}-OWASP_CRS/LEAKAGE/ERRORS-
+								%{matched_var_name}=%{tx.0}"
+The rule I see looks in the response body for the message that is found after @rx. This indicates that waht comes next is a regular expression.
+
+
 
 
 
