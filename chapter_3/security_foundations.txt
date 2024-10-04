@@ -514,6 +514,41 @@ attack. In several cases of running a basic Snort installation with the communit
 was HTTP over port 80, not SIP. Rules are not infallible, so it is possible for rules to catch legimitate traffic, and if I'm running an IPS, I may end up blocking
 messages from customers or partners.
 
+One of the challenges of an IDS or IPS is the volume of logs they can create. This is a factor of the number of rules I have, how well they are written, and how much
+traffic I get into my network, as well as the placement of my sensors. Alerting is a significant challenge, and it can require a lot of work to fine-tune rules so
+my analysts, or whoever is looking at the alerts, don't become screen-blind, meaning they get so used to seeing the same alerts over and over that they end up missing
+one that is legitimate --  a white rabbit in a field of white snow/noise. Fortunately, there are solutions that can help with that problem.
+
+###Endpoint Detection and Response
+
+While I may be familiar with anti-malware software, used to detect the existence of viruses and other malicious software on a system, I may be less familiar with this.
+EDR is a class of software that can perform a range of fucntions that are useful to a security operations staff.There are several commercial offerings in the EDR space,
+and each one of them may provide a diff set of functionalities, though there will be a core set of functions they all provide.
+
+One functions they may provide is anti-malware. Not all EDR solutions will offer this sort of preventive control. An EDR that offers anti-malware may be focused not only
+on the signatures that would be typical for anti-malware but also behavior-based detections. After all, the vendors of this EDR solutions are aware of the same TTPs that
+MITRE publishes so they can look for the TTPs that would relate to how malware may expect to install and run. They may be able to prevent malware from executing, or at
+least generate an alert to indicate suspicious behavior was found.
+
+EDR solutions may also detect other malicious behavior, which may be done through investigating logs that are available on the system. However, the most common functions
+EDR tools will perform is being able to remotely assess systems from a central console. Additionally, these tools can be used to pull back artifacts from the systems.
+This may include such details as process listings, memory dumps, files or logs. Google Rapid Response (GRR) is an example of an EDR.
+
+Having the ability to capture details quickly without having to go to the target system makes response a lot faster. However, attackers do know about these tools and
+may simply opt not to runif the existence of the tools is detected. They may also go into more extreme versions of evasion to make it a lot harder for the EDR to locate
+the attacker and their techniques. However, if I need to be able to capture a lot of details about a remote system for any sort of investigation, these tools are invaluable.
+
+Another function EDR tools can often provide is isolation. If I happen to notice an attacker has gained access to a system, I want to keep them from being able to get to
+other systems within the environment. I don't want them to know that I know that they are there, however. If they know I know they are there, they either may go into
+hiding, remaining in the environment while staying away from my eyes until I stop prying, or may burn everything down just to make life harder for the business.
+
+An EDR tool may be able to perform something called host isolation. While this may be able to be done within the network, especially if I have firewalls controls
+within the network within the network segments, it can be more efficient to just use a software control on the local system where the attacker has been seen.
+The attacker retains access to the system, but they unable to get out to any other system. This may be done while the complete scope of the investigation is being
+completed -- trying to figure out everywhere the attacker is within the environment.
+
+###Security Information and Management
+
 
 
 
