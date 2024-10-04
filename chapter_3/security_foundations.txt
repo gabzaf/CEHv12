@@ -549,7 +549,14 @@ completed -- trying to figure out everywhere the attacker is within the environm
 
 ###Security Information and Management
 
+A good practice from the standpoint of both system administration and security is system logging. Logs are helpful to diagnose problems in the system and network.
+They can also help in an investigation of a potential issue. Forensic investigators and incident responders will find them invaluable. If I've ever had to troubleshoot
+a system or application that has failed without having any logs to look at, I will understand the value of logs. However, turning up all logging to the maximum isn't
+the answer either. Logs consume disk space, though disk space is generally inexpensive these days. They also consume processing power, and more logging can actually
+make it harder to find problems because I'm having to wade through enormous volumes of text to find one entry that will help me. I won't always know the text to search
+for after all.
 
+This is where a good log management system can be helpful. In the case of security incidents
 
 
 
