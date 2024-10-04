@@ -479,7 +479,21 @@ reference:bugtraq,24585; reference:cve,2007-3338; reference:url,supportconnectw.
 reference:url,www.ngsoftware.com/advisories/high-risk-vulnerability-in-ingres-stack-overflow; classtype:attempted-admin; sid:12027; rev:11;)
 
 Snort rules start with an action. I can alert, as is done in both of these rules, which generates an alert message to whatever is configured for output. In addition,
-however, I can log, drop, reject and pass, along with some actions.
+however, I can log, drop, reject and pass, along with some actions. Some of these capabilities take us beyond traditional IDS functionality, but they are actions that
+Snort can take in rule configurations. After the action, I configure the details about the headers. This includes the protocol I want to alert on. In my case, I'm
+alerting on a TCP message, so I need to specify not only a source and destination address but also a source and destination port. The -> indicates the direction of
+the flow.
+
+Inside the () are the details about the rule. First is the message to use in the log. After that, I will find details about the flow. Snort is aware of which side
+is the client and which is the server, so I can indicate which side the message should come from. While I've specified source and destination ports, this is a little
+more detailed. The important part comes next, where I specify what the packet should contain to match on this rule. I will also see metadata, such as reference info.
+This reference info may include details about a vulnerability this is meant to alert on. Finally, rules will have a Snort identification number (SID). While this is
+configurable, there are conventions about numbers that should be used for user defined rules. Values up to 999999 are reserved for the use of rules that come with the
+Snort distro. I can also specify a revision number, so I can have some version control on the SIDs I use.
+
+Commonly, I would use alert or log in the case of an IDS, since the intention of an IDS is just to detect events. The alert assumes that someone is payng attention
+to what the IDS is emitting and taking actions based on the alert and a subsequent investigation. There are, though, cases where I may want the IDS itself to do
+something with what if found. 
  
 
 
