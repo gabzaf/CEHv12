@@ -495,7 +495,24 @@ Commonly, I would use alert or log in the case of an IDS, since the intention of
 to what the IDS is emitting and taking actions based on the alert and a subsequent investigation. There are, though, cases where I may want the IDS itself to do
 something with what if found. 
  
+###Intrusion Prevention Systems
 
+An IPS takes and IDS a step further. Snort has actions includind drop and reject. These are actions that are beyond the capability of Snort itself. Snort monitors
+network traffic and parses through it to identify packets that contain possible malicious contents, as identified by the rules. To have Snort run as an IPS, it has
+to be placed inline, meaning it has to be a device in the path of traffic into and out of the network. Any IPS would have to be similarly configured in order to have
+the ability to block any network traffic.
+
+With the IPS in the flow, it can act like a firewall, making decisions about whether to accept or reject packets as they enter the network. The difference btw an IPS
+and a firewall is that the "firewall rules" on an IPS would be dynamic. Rather than having large blanket rules blocking IP adressess wholesale, the IPS would make
+decisions based on the contents of packet. The rule would be in place for the duration of the packet passing through the IPS -- essentially a one-off. The rule
+may just exist to handle that one packet, or it may be in use for a longer period, but the rules are dynamic and temporary by nature. Also while inline, either the
+IPS can choose to drop the message, meaning just discard it, or it can reject it with an appropriate message. This may be an ICMP destination unreachable message,
+for example.
+
+Even with an IPS where potential attacks are blocked, the logs and alerts should be investigated. Not every message that matches an IDS/IPS rule will be a legitimate
+attack. In several cases of running a basic Snort installation with the community rules, I have run across alerts indicating bad SIP messages, when in fact the traffic
+was HTTP over port 80, not SIP. Rules are not infallible, so it is possible for rules to catch legimitate traffic, and if I'm running an IPS, I may end up blocking
+messages from customers or partners.
 
 
 
