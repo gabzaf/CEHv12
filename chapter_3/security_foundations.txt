@@ -456,8 +456,30 @@ some community rules is still offered.
 
 A network IDS watches all network traffic that passes by network interface. This means that placement is important. There may be diff approaches to placement,
 depending on the IDS product being used. One of these approaches is to place the IDS connected in parallel rather than in series at the very perimeter of the
-network so all network traffic coming can be observed.
+network so all network traffic coming can be observed. IDS can be behind the firewall but not in the traffic flow directly. Traffic gets shunted to the IDS so
+it can detect without getting in the way or causing a network failure. Another approach is to place sensors in diff parts of the network so I don't have a single
+device. This approach may be expecially useful if I'm trying to look at potential insider attacks.
 
+It used to be the case, many years ago, that IDS devices had problems keeping up with all of the traffic coming through a network, since the IDS device had to look
+at each packet and compare it against as many rules as were configured. This isn't the case any longer because processing power has increased considerably, as
+has overall bus throughput in systems. Even so, using multiple sensors across diff parts of the network can allow for sharing the processing load.
+
+I can take a look at Snort rules to see what an IDS can do and how it may work. Just as with WAF rules, it takes some time and effort to understand how to write
+rules, especially in cases where what I'm trying to detect on is content in the packets. In the following code listing, I will see two Snort rules that demonstrate
+some of what Snort can do.
+
+	[Snort Rules]
+alert tcp $EXTERNAL_NET any -> $SQL_SERVERS 7210 (msg:"SQL SAP MaxDB shell command injection attempt"; flow:to_server, established; content:"exec_sdbinfo";
+fast_pattern:only; pcre:"/exec_sdbinfo\s+[\x26\x3b\x7c\x3e\x3c]/i"; metadata:policy balanced-ips drop, policy max-detect-ips drop, policy security-ips drop;
+reference:bugtraq,27206; reference:cve,2008-0244; classtype:attempted-admin; sid:13356; rev:7;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET 21064
+(msg:"SQL Ingres Database uuid_from_char buffer overflow attempt"; flow:to_server, established; content:"uuid_from_char"; fast_pattern:only;
+pcre:"/uuid_from_char\s*?\(\s*?[\x22\x27][^\x22\x27]{37}/smi"; metadata:policy balanced-ips drop, policy max-detect-ips drop, policy security-ips drop;
+reference:bugtraq,24585; reference:cve,2007-3338; reference:url,supportconnectw.ca.com/pubblic/ca_common_docs/ingresvuln_letter.asp;
+reference:url,www.ngsoftware.com/advisories/high-risk-vulnerability-in-ingres-stack-overflow; classtype:attempted-admin; sid:12027; rev:11;)
+
+Snort rules start with an action. I can alert, as is done in both of these rules, which generates an alert message to whatever is configured for output. In addition,
+however, I can log, drop, reject and pass, along with some actions.
  
 
 
