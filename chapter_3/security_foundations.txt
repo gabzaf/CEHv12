@@ -572,7 +572,20 @@ have a philosophy about how I'm going to implement everything I have.
 
 ###Being Prepared
 
+Technology is all well and good. However, technology in and on itself is insufficient to protect a network. It's been said that the only secure computer is one
+that has had all of the cables cut and, ideally, has been filled with cement and dropped to the bottom of the ocean. If I want to do anything with a computer, I
+am exposing myself to the potential for that computer to become infected or compromised. Security comes from planning and prepararation. To be prepared, I need
+to make sure I have thought through the implications of my actions, as well as how I am implementing any solutions I have in place.
 
+Implementing security solutions requires understanding where my resources are -- this is not only information assets. It's also my technology assets. Perhaps
+most important, it's my human assets. Technology alone won't be sufficient. I can take care of technology aspects with a defense-in-depth approach to security
+design and architecture. A defense-in-breadth approach, though, require humans.
+
+As mentioned earlier, having logs is really important when it comes to responding to security events. While it's nice to have a SIEM solution, even if I have one,
+I need data to feed to it. I can get that data by making sure I am logging on to my systems. Additionally, accounting information is useful so I have a trail of
+activity to track behaviors.
+
+###Defense in Depth
 
 
 
