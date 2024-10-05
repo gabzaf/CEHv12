@@ -563,7 +563,16 @@ It will also provide me with the ability to better visualize my data. See Elastc
 
 A SOC will often be built around monitoring systems, including a SIEM system that can be used to correlate data from a number of diff sources. The advantage to
 using SIEM is being able to pull a lot of data together so I can get a broader picture of what is happening across the network. This will help me to see trends
-and largers attacks. Seeing an attack
+and largers attacks. Seeing an attack in isolation may get me to focus on the one attack I'm looking at, rather than recognizing that there are several other systems
+other systems that are also being attacked. A single system doesn't necessarily provide me with the entry point.
+
+Having data points can help to ensure that the right controls are in place to protect info assets. Data is only a starting point, however. I still nedd to be able to
+interpret it and understand what to do with what I have. A strategy is important. This can be policies and procedures as well as technology plan. I may also want to
+have a philosophy about how I'm going to implement everything I have.
+
+###Being Prepared
+
+
 
 
 
