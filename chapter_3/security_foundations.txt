@@ -556,9 +556,14 @@ the answer either. Logs consume disk space, though disk space is generally inexp
 make it harder to find problems because I'm having to wade through enormous volumes of text to find one entry that will help me. I won't always know the text to search
 for after all.
 
-This is where a good log management system can be helpful. In the case of security incidents
+This is where a good log management system can be helpful. In the case of security incidents, these log management systems can also include search and correlation
+tools. While there are many log management solutions, many orgs are moving to something called security inforamtion and event management (SIEM). SIEM software,
+however, is simply a log management solution. I don't just dump all my logs into it and move on. SIEM software is used to correlate and analyze security alerts.
+It will also provide me with the ability to better visualize my data. See Elastci Stack (Elasticsearch, Logstash and kibana).
 
-
+A SOC will often be built around monitoring systems, including a SIEM system that can be used to correlate data from a number of diff sources. The advantage to
+using SIEM is being able to pull a lot of data together so I can get a broader picture of what is happening across the network. This will help me to see trends
+and largers attacks. Seeing an attack
 
 
 
