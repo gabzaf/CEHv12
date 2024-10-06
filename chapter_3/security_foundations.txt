@@ -602,6 +602,30 @@ background checks and data handling policies. These admnistrative controls set t
 
 ###Defense in Breadth
 
+It's all the surround that is missing from defense in depth. Defense in depth doesn't take into account all of the human factors. Defense in breadth is
+meant to take a more holistic look at the organization from a risk perspective. The org is meant to evaluate risk and take a systemic look at how to mitigate
+any risk, taking into account the threats that the org expects to be exposed to. To fully evaluate risk and take a comprehensive look at potential solutions,
+an org needs to have data.
+
+One way, perhaps, to think about it is that defense in depth is really about prevention. However, prevention isn't entirely realistic. This is especially true in
+an era where the old technical attacks of exploiting vulnerabilities in listening services exposed to the outside world are no longer the vectors of choice.
+Instead, going after the user is more productive, so social engineering attacks and a lot of malware are more common. As a result, the best approach to security
+is not to focus primarily on prevention but instead assume that I will get breached at some point and prepare for response.
+
+To be prepared for a response, I need a lot of detection and historical data. Additionally, I need an incident response team whose members know what their roles
+are. I also need a lot of communication across diff teams. The members of the sec team are not always the best people to perform all the work in response events.
+This means that breaking down some of the traditional silos is essential.
+
+A growing trend in the IT space is the collaboration btw development teams and operations team, commonly referred to as DevOps. Companies that are even more
+forward-thinking are also ensuring that security is merged in along the way. What I end up with is something that is often called DevSecOps. These approaches
+focus not only on teamwork and the associated communication that is necessary but also on automation. Automating builds, testing and deployment takes a lot
+of the human factor out, helping to avoid misconfig or other mistakes.
+
+The ultimate goal is to better position to not only protect the org but also respond to attacks -- also, to respond to a breach with the goal of restoring
+business operations as quicky as possible.
+
+###Defensible Network Architecture
+
 
 
 
