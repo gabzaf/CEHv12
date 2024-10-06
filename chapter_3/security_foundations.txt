@@ -587,7 +587,20 @@ activity to track behaviors.
 
 ###Defense in Depth
 
+It's a layered approach to network design. Using a defense-in-depth approach, I would design a layered network with multiple security gateways to control access
+btw layers. One of the objectives of a defense-in-depth approach is to delay the attacker or adversary. It's also to, ideally, create artifacts along the way.
+When a defense-in-depth strategy is used, as an adversary moves through the layers of the network, they leave traces. These traces can be detected by automated
+analysis tools or operations staff.
 
+The first area of controls to consider is physical.
+
+The second area of controls is technical. Firewalls, IDSs, SIEMs and othe security technology. It can be software or config controls like passwords policies,
+requiring complex passwords, antivirus or other endpoint protection.
+
+Finally, there are administrative controls. These are the policies, standards and procedures. This may include policies or practices like hiring standards,
+background checks and data handling policies. These admnistrative controls set the tone for how the org is protected and they are essential.
+
+###Defense in Breadth
 
 
 
