@@ -626,7 +626,19 @@ business operations as quicky as possible.
 
 ###Defensible Network Architecture
 
+It focuses on building my network in a way that I can more easily monitor and control. Keep in mind that one of the technique an attacker will use is to move
+laterally (from system to system) within a network environment.
 
+Attackers don't generally have the big picture with regard to the entire enterprise network, unless they happen across a network a diagram. If I create a
+a network that has firewalls at the entry/exit point points of the network, a common approach used to segment the network, I have the ability to monitor
+all traffic going into and out of the network. I also have the ability to create a choke point, meaning if I suspect an attacker is in one network segment,
+I can restrict all access to other network segments.
+
+Having these types of controls of blocking and monitoring allows me to better keep track of and control over what an attacker is doing, if I catch them
+late in the attack lifecycle and they have taken up residence to at least a small degree. I may not have blocked them from getting initial access, but I
+should have the ability to keep an eye on them and restrict further access while I get the complete scope of their infiltration of my environment.
+
+###Logging 
 
 
 
