@@ -640,6 +640,19 @@ should have the ability to keep an eye on them and restrict further access while
 
 ###Logging 
 
+System logging, application logging, network equipment logging. The importance of having historical data can't be overstated.
+
+Many systems, including Unix-like systems as well as network devices, will support the syslog protocol. This is a logging protocol that began as the
+logging mechanism for the SMTP server sendmail. Syslog not only has an easy-to-understand syntax in the creation and reading for messages, it also can
+be used for remote logging as well as local logging.
+
+Because syslog can support remote logging, it can be used as a centralized log host. This fact is, perhaps, especially important when preparing for incident
+response. A common approach to wiping my tracks is to wipe logs. Any attacker who gets access to a system may be able to wipe the local logs, but if they are
+streaming off the system, they are retained for later use, unless the attacker can compromise the central log host.
+
+I can see an example of syslog messages below. Each message starts with the date, followed by the originating hostname. After that is the process that created the log,
+including the process identification number. Finally, the message that the process generated is shown.
+
 
 
 
