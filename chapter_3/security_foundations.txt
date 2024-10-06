@@ -653,6 +653,8 @@ streaming off the system, they are retained for later use, unless the attacker c
 I can see an example of syslog messages below. Each message starts with the date, followed by the originating hostname. After that is the process that created the log,
 including the process identification number. Finally, the message that the process generated is shown.
 
+	[syslog Messages]
+Jun 26 10:27:16 boardinghouse kernel: [923361.001444] vmbr0: port 3 (tap210i0) entered forwarding state
 
 
 
