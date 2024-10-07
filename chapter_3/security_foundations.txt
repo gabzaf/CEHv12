@@ -683,6 +683,22 @@ the Event Viewer application, I would be able to look at all the event log entri
 a list of all the applications windows is logging for. Any application could have its own entry in that list to keep the logs separate from the system
 while it's still logged to the same location as all the other logs.
 
+###Auditing
+
+Logs are important and It's generally relied on application developers to implement logging and, ideally, configurable logging, meaning diff levels of log messages.
+Being able to turn up logging to a verbose level can make troubleshooting problems much easier. The same is true for the OS. This is where auditing can come in.
+Both Unix-like systems and windows systems offer the ability to enable and config auditing. Of course, the definition of auditing is diff acroos two systems.
+
+On windows systems, auditing is a security function. It relates to success or failure of system events. This can include sucess or failure of logins, for example,
+or access to files on the system. On Local Security Policy application there is the settings of the audit policy. Each category in the policy can have success or
+failure logged. This isn't an either/or, though. I can log both success and failure. If the audit events are triggered, they will show up in the security log
+in the windows event viewer.
+
+On the Linux side, there is a completely diff auditing infrastrucuture. Using the program auditctl, audit policies can be managed on a Linux system. The auditing
+subsystem in the Linux kernel can be used to watch files and directories for activity. It can be used to monitor application execution. Perhaps most important,
+it can also be used to monitor system calls. Any system call used by any program on the system can be monitored and logged. The audit subsytem typically has its
+own set of logs. An example of some of the log entries from audit.log on CentOS Linux system is shown in the following code listing.
+
 
 
 
