@@ -667,7 +667,21 @@ as backups.
 Beyond facilities, syslog defines severity. This means applications can determine the level of an event, including informational, debug, warning and error. Just as with
 facilities, severities can be redirected to diff locations.
 
+On windows systems, log messages get sent to the event subsystems by default. Instead of the text-based messages that syslog uses, the event subsystem uses a
+binary storage system. Of course, one advantage of the way event subsystem stores data is that it can be queried, as though it were a database. While it's not
+as easy to parse messages, the fact that I can query messages means I can easily return related messages with a single query.
 
+The event subsystem in windows also has a large amount of data. In addition to the different categories, such as system, security and application, there are
+event IDs. An event ID can identify all entries that are the same. Searching for the event ID can give me every instance of a particular event, which may occur
+across multiple processes.
+
+In both cases, application developers can make use of the system-provided logging functionality. On the Unix side, any developer can write to syslog and the
+syslog service will take care of writing the logs out based on the definition in the config file. This takes the onus of developing logging schemes off the
+developers and also ensures a single place to go for log messages. The same is true on windows systems. Any application developer can make use of the event subsystem,
+using it to write log messages. The application can even have its own log file and windows will break the logs out to separate locations. If I were to go into
+the Event Viewer application, I would be able to look at all the event log entries and the diff categories the event logs fell into. I would tipically see
+a list of all the applications windows is logging for. Any application could have its own entry in that list to keep the logs separate from the system
+while it's still logged to the same location as all the other logs.
 
 
 
