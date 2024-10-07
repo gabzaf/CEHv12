@@ -655,7 +655,17 @@ including the process identification number. Finally, the message that the proce
 
 	[syslog Messages]
 Jun 26 10:27:16 boardinghouse kernel: [923361.001444] vmbr0: port 3 (tap210i0) entered forwarding state
+Jun 26 10:27:17 boardinghouse pvedaemon[10864]: <root@pam> end task UPID:boardinghouse:000034F1:0580EE23:5B326963:qmstart:root@pam: OK
+Jun 26 10:27:42 boardinghouse pvedaemon[9338]: <root@pam> starting task UPID:boardinghouse:00003552:0580F8B5:5B32697E:vncproxy:210:root@pam:
+Jun 26 10:32:09 boardinghouse pvedaemon[9338]: <root@pam> end task UPID:boardinghouse:00003552:0580F8B5:5B32697E:vncprroxy:210:root@pam: OK
 
+The syslog standard defines facilities to categorize messages so they can be routed to diff locations. Any messages related to authentication, for example, can be put
+into a single file, away from other types of messages. Each facility can be routed to a diff file or even a diff system, if I wanted some log messages stored
+locally and others stored centrally. In some syslog implementations, I can store both locally and remotely. This provides local logs as well as remote logs that function
+as backups.
+
+Beyond facilities, syslog defines severity. This means applications can determine the level of an event, including informational, debug, warning and error. Just as with
+facilities, severities can be redirected to diff locations.
 
 
 
