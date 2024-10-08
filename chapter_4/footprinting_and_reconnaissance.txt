@@ -23,3 +23,74 @@ can be mined, and I can get a better understanding about my target and systems a
 It may be useful as my work through the diff stages of a testing methodology to identify matches to the MITRE ATT&CK framework. The ATT&CK framework has a
 reconnaissance phase, and it covers scanning as well as gathering info from diff sources about diff aspects of the target. While it's common to think that
 attackers are looking for vulnerabilities and system of interest, they are probably more likely to look for human targets. This may be identifying
+employees and email addresses but also, perhaps just as important, knowing what those employees do, which will tell the attacker how much access they have.
+More access means an attacker may be able to get to something that can easily be monetized.
+
+The first place to start, though, is how to use open source of data to identify a jumping-off point for getting info about my target.
+
+#Open Source Intelligence
+
+I may be doing a true red team against the target company and systems. In that case, I need to locate as much information as I can so I know not only what
+my attack surface looks like but possible ways in. Additionally, I can find a lot of info about individuals within an org. This is especially useful because
+social engineering attacks have a good possibility of success. Having contacts to go after is essential.
+
+Orgs aren't always aware of the amount of info they are leaking. Attackers can find footholds, as well as potential human targets for social engineering
+attacks. If I'm working hand in hand with the company I'm performing testing for (white-box testing), I don't need to use OSINT for starting points, but I
+should still gather what info is available for the awareness of the company. They may be able to limit their exposure. Even if there isn't anything that
+could be pulled back, they could work on awareness so employees and the org as whole aren't leaking info unnecessarily.
+
+There are number of tools that can be used to automate the collection of info. There are social networking sites that can be used. Even in cases where
+privacy settings are locked down, there is still a lot of info that can be gathered. There are also sites that exist to be public and those can definitely be used. 
+
+##Companies
+
+There are several starting points when it comes to acquiring OSINT about my target. The first is to look at the company overall. I'll want to gather info
+about locations the company has. There are instances where this can be easy. However, increasingly, it can be harder. The reason it can be harder is that
+companies recognize that the more info they provide, the more info can be used against them. So, unless they are required to provide that info by regulations, they
+don't provide it. There are a few resources that can be used to gather info about companies.
+
+Sometimes, these resources can be used to gather info that may be used for social engineering attacks. In some cases, I will be able to gather details about a company's
+network. Both types of info can be useful. Details about a company and its organizational and governance structure can come from a database maintaned by the US government,
+in the case of businesses registered in the US. Detaisl about the business network may come from database maintaned by the organizations that are responsible for
+governance of the Internet.
+
+###EDGAR
+
+Public companies are required to provide info about themselves. There are resources I can use to look up that info. In the process, I may gather info about a
+company's org structure. The org structure can tell me who has what position, so when I'm working on sending out email messages to gather additional info later,
+I know who they should appear to be from. I can select the holder of an appropriate position.
+
+The SEC has a database that stores all public filings associated with a company. The EDGAR system can be used to look up public filings such as the annual report
+in the form 10-K. The 11-K, a form including details about employee stock option plans, is also filled with EDGAR.
+
+One of the most useful forms I can find in EDGAR is Schedule 14A on SEC site, which is a proxy statement and will include the annual report to the shareholders,
+which may nclude a lot of useful info for me.
+
+###Domain Registrars
+
+I can get the address of what is probably the company's headquarters.
+
+Before I get too far down this road, though, it's probably useful for me to understand how the internet is governed when it comes to domains and addresses. First,
+there is the Internet Corporation for Assigned Names and Numbers (ICANN). Underneath ICANN is the Internet Assigned Numbers Authority (IANA), which is responsible
+for managing IP addresses, ports, protocols and other essential numbers associated with the functioning of the Internet.
+
+In addition to ICANN, responsible for names and numbering, are the domain registrars. These orgs store info about addresses they are responsible for as well as
+contacts.
+
+To grab info out of the regional Internet registry (RIR), I would use the whois program. This is a program that can be used on the CLI.
+
+###Regional Internet Registries
+
+There are five RIRs around the world. All of these RIRs have their own databases that can be queried using whois.
+
+###People
+
+
+
+#Domain Name System
+
+#Passive Reconnaissance
+
+#Website Intelligence
+
+#Technology Intelligence
