@@ -85,7 +85,11 @@ There are five RIRs around the world. All of these RIRs have their own databases
 
 ###People
 
-
+While systems and the IP adresseses associated with them make good entry points for technical attacks -- those against services that are available -- contact
+info for people can be more useful. There are other places I can go to get lists of people who belong to a target org. Again, there are utilities I can use to help me
+gather this info. One of them is theHarvester. This is a script that will search through diff sources to locate contact info based on a domain name provided to
+the program. In the following code, I can see the output from theHarvester run against the domain I want, using Bing as the search source. DuckDuckGo is
+another search option, but it didn't yield any people results in this search, though it did yield a single host.
 
 #Domain Name System
 
