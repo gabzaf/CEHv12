@@ -1,0 +1,4 @@
+#Topics covered: Technical assessment methods, port scanning, privacy and confidentiality, data analysis and vulnerability scanning.
+
+It's commonly believed that attackers do a lot of work up front before launching attacks. They get a sense of how large the attack surface is and where their targets are.
+This can take a lot of work, using a lot different tool and skill sets. The process of getting the size
