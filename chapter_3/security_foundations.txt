@@ -699,7 +699,18 @@ subsystem in the Linux kernel can be used to watch files and directories for act
 it can also be used to monitor system calls. Any system call used by any program on the system can be monitored and logged. The audit subsytem typically has its
 own set of logs. An example of some of the log entries from audit.log on CentOS Linux system is shown in the following code listing.
 
-
+	[audit.log Sample Output]type=USER_LOGIN
+msg=audit(1530130008.763:341): pid=9711 uid=0 auid=0 ses=30 msg='op=login id=0 exe="/usr/sbin/sshd" hostname=binkley.lan addr=192.168.86.49 terminal=/dev/pts/0 res=success'
+type=USER_START msg=audit(1530130008.765:342):pid=9711 auid=0 ses=30 msg='op=login id=0 exe="/usr/sbin/sshd" hostname=binkley.lan addr=192.168.86.49 terminal=/dev/pts/0 res=success'
+type=CONFIG_CHANGE msg=audit(1530130271.424:353): auid=4294967295 ses=4294967295 op=add_rule key=(null) list=4 res=1
+type=SERVICE_START msg=audit(1530130271.424:354): pid=1 uid=0 auid=4294967295 ses=4294967295 msg='unit=auditd comm="systemd" exe=".usr/lib/systemd/systemd" hostname=? addr=? terminal=? res=success'
+type=SYSCALL msg=audit(1530130283.962:355): arch=c000003e syscall=59 success=yes exit=0 a0=106e000 a1=1063a90 a2=10637e0 a3=7ffec3721e70 items=2 ppid=9711 pid=9908 auid=0 uid=0 gid=0
+eu-id=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=pts0 ses=30 comm="cat" exe="/usr/bin/cat" key=(null)
+type=EXECVE msg=audit(1530130283.962.355): argc=2 a0="cat" a1="audit.log"
+type=CWD msg=audit(1530130283.962:355): cwd="/var/log/audit"
+type=PATH msg=audit(1530130283.962:355): item=0 name="/usr/bin/cat" inode=2799 dev=fd:00 mode=0100755 ouid=0 ogid=0 rdev=00:00 objtype=NORMAL cap_fp=000000000000000000
+cap_fi=0000000000000000 cap_fe=0 cap_fver=0
+type=PATH msg....
 
 
 
