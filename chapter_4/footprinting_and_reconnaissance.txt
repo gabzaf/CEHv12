@@ -1,4 +1,25 @@
 #Topics covered: Technical assessment methods, port scanning, privacy and confidentiality, data analysis and vulnerability scanning.
 
-It's commonly believed that attackers do a lot of work up front before launching attacks. They get a sense of how large the attack surface is and where their targets are.
-This can take a lot of work, using a lot different tool and skill sets. The process of getting the size
+It's commonly believed that attackers do a lot of work up front before launching attacks. They get a sense of how large the attack surface is and where
+their targets are. This can take a lot of work, using a lot different tool and skill sets. The process of getting the size and scope of the target is
+called footprinting -- in other words, the attacker, or me, the ethical hacker, is trying to pick up the footprint of the target organization. When
+it comes to ethical hacking, I may have some help from the target who would have employed me for my services. They may provide me with some footholds
+to get a sense of the scope and scale of what I should be doing. It's possible, though, that I'm starting blind and I have to get my own footholds.
+
+There are a lot of places I, as an ethical hacker, can get information about my targets, though. Open source intelligence is te term that describes
+identifying information about my target using freely available sources. There are other places where I can acquire information in other than legal ways,
+and of course, I could directly infiltrate a company's physical locations to get some information that I can use against my target. That's potentially
+illegal and definitely not open source.
+
+The objective here is to acquire data that I need without tipping off my target that I'm doing it. This is why I might use third-party sources to acquire
+the information I need. I can also gather a lot of details by interacting with services at the target in ways that I would be expected. As an example,
+I might visit their website requesting pages, just as any other visitor to their site might do. Nothing special about what I'm asking for  or how I'm
+asking for it. However, if I know where to look, I can gather a lot of info about systems and technology in use by my target.
+
+One source of a lot of detail about my target is the DNS. This isn't something a lot of people spend time thinking about. When it works, I have no idea
+because it happens so quietly in the background. However, there is a lot of data stored in DNS servers about domains and even IP address blocks. This data
+can be mined, and I can get a better understanding about my target and systems and the IP address blocks that may be associated with my target.
+
+It may be useful as my work through the diff stages of a testing methodology to identify matches to the MITRE ATT&CK framework. The ATT&CK framework has a
+reconnaissance phase, and it covers scanning as well as gathering info from diff sources about diff aspects of the target. While it's common to think that
+attackers are looking for vulnerabilities and system of interest, they are probably more likely to look for human targets. This may be identifying
