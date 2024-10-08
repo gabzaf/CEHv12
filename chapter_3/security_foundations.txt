@@ -714,7 +714,13 @@ type=PATH msg=audit(1530130283.962:355): item=1 name="/lib64/ld-linux-x86-64.so.
 cap_fi=0000000000000000 cap_fe=0 cap_fver=0
 type=PROCTITLE msg=audit(1530130283.962:355): proctitle=6361740061756469742E6C6F67
 
+Each entry provides details about the type of the entry, which indicates what the audit subsystem has detected. For example, the first entry indicates that a user has logged in.
+I can see from the details that the address the connection came from is 192.168.86.49, that the executable is /usr/sbin/sshd, and that the result was a success. Other entries
+indicate file actions, program executions and config changes.
 
+Much as with the auditing under windows, the auditing under Linux needs to be configures. I do this by creating rules that are used by the audit daemon. I can make the changes
+directly in the config files or I can add the rules on the CLI using the auditctl command. This implements changes directly and is what gets called as the audit system
+coming up. What go into the config file are the CLI parameters that would get passed to auditctl.
 
 
 
