@@ -708,9 +708,11 @@ type=SYSCALL msg=audit(1530130283.962:355): arch=c000003e syscall=59 success=yes
 eu-id=0 suid=0 fsuid=0 egid=0 sgid=0 fsgid=0 tty=pts0 ses=30 comm="cat" exe="/usr/bin/cat" key=(null)
 type=EXECVE msg=audit(1530130283.962.355): argc=2 a0="cat" a1="audit.log"
 type=CWD msg=audit(1530130283.962:355): cwd="/var/log/audit"
-type=PATH msg=audit(1530130283.962:355): item=0 name="/usr/bin/cat" inode=2799 dev=fd:00 mode=0100755 ouid=0 ogid=0 rdev=00:00 objtype=NORMAL cap_fp=000000000000000000
+type=PATH msg=audit(1530130283.962:355): item=0 name="/usr/bin/cat" inode=2799 dev=fd:00 mode=0100755 ouid=0 ogid=0 rdev=00:00 objtype=NORMAL cap_fp=0000000000000000
 cap_fi=0000000000000000 cap_fe=0 cap_fver=0
-type=PATH msg....
+type=PATH msg=audit(1530130283.962:355): item=1 name="/lib64/ld-linux-x86-64.so.2" inode=33559249 dev=fd:00 mode=0100755 ouid=0 ogid=0 rdev=00:00 objtype=NORMAL cap_fp=0000000000000000
+cap_fi=0000000000000000 cap_fe=0 cap_fver=0
+type=PROCTITLE msg=audit(1530130283.962:355): proctitle=6361740061756469742E6C6F67
 
 
 
